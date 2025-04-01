@@ -1,0 +1,21 @@
+1.
+nav bar ko fix karo responsive bnao android ke liye android ajisa nanao 3 lines wala 
+
+2.  
+isme ek box aur add karo sabse upar jiski heading ho daily  check webs 
+
+
+3.
+isme ek profiele wala button add karo left side me jis par click karke par jaise search par click karne par interface aata hai usi tarah ka interface aaye aur ek circle shape me ek photo khule name="profile.png"  aur border uska us color ka ho jaise site ka theme color hai aur use shado nikal rahi ho jaise smoke nikalta hai  aur right side upar me ek cross ka nisaan bhi ho jisse us page se nikla jaa sake aur ahn name ke nich mera whatsapp no. bhi show hona chahiye 
+
+4.
+jo nav bar khali hain unke liye bhi boxes banao 
+
+5.
+website me animation add karo 
+
+6.
+website me ek chatbot add karo jo if kisi open source ai se connected ho . aur yahn se input lekar yahan ek par sabse last me k box banano jisme vo output show kare ai ka 
+
+7.
+isme 2 emoty boxes aur add karo jisme html ke saare tags ho but empty ho 
