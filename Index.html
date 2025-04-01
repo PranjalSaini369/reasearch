@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<style>
+    /* Search Button and Modal Styles */
+    .search-button {
+        position: fixed;
+        right: 20px;
+        top: 80px;
+        padding: 10px 20px;
+        background: rgba(0, 255, 255, 0.2);
+        border: 1px solid #0ff;
+        color: #0ff;
+        border-radius: 20px;
+        cursor: pointer;
+        font-family: 'Orbitron', sans-serif;
+        z-index: 1001;
+        transition: all 0.3s ease;
+    }
+
+    .search-button:hover {
+        background: rgba(0, 255, 255, 0.4);
+        transform: scale(1.05);
+    }
+
+    .search-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 15, 26, 0.95);
+        z-index: 2000;
+    }
+
+    .search-container {
+        position: relative;
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid #0ff;
+        border-radius: 10px;
+        color: #fff;
+        outline: none;
+    }
+
+    .search-results {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .close-button {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        color: #0ff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchButton = document.createElement('button');
+        searchButton.className = 'search-button';
+        searchButton.textContent = 'Search';
+        document.body.appendChild(searchButton);
+
+        const searchModal = document.createElement('div');
+        searchModal.className = 'search-modal';
+        searchModal.innerHTML = `
+            <div class="search-container">
+                <span class="close-button">&times;</span>
+                <input type="text" class="search-input" placeholder="Search for courses...">
+                <div class="search-results"></div>
+            </div>
+        `;
+        document.body.appendChild(searchModal);
+
+        const courseWebsites = [
+            'coursera.org',
+            'udemy.com',
+            'coursesity.com',
+            'coursejoiner.com',
+            'isro.gov.in/learning-center',
+            'nptel.ac.in',
+            'swayam.gov.in',
+            'https://elearning.iirs.gov.in/edusatregistration/student',
+            'https://codeinplace.stanford.edu/',
+            'https://online.stanford.edu/free-courses',
+            'https://swayam.gov.in//',
+            'https://alison.com/',
+            'https://swayam.gov.in/explorer',
+            'https://learn.microsoft.com/en-us/training/',
+            'https://grow.google/intl/en_in/learn-skills',
+            'https://grow.google/certificates/',
+            'https://developers.google.com/machine-learning/crash-course',
+            'https://www.open.edu/openlearn/',
+            'https://codeinplace.stanford.edu/',
+            'https://swayam.gov.in//',
+            'https://ocw.mit.edu/courses/',
+            'https://alison.com/',
+            'https://swayam.gov.in/explorer',
+            'https://elearning.iirs.gov.in/edusatregistration/student',
+            'https://coursejoiner.com/',
+            'https://www.coursesity.com/',
+            'https://www.futurelearn.com/',
+            'https://www.freecodecamp.org/',
+            'https://www.linkedin.com/learning/',
+            'https://nptel.ac.in/',
+            'https://www.futurelearn.com/',
+            'https://www.classcentral.com/',
+            'https://www.mooc-list.com/',
+            'https://arxiv.org/',
+            'https://www.researchgate.net/',
+            'https://scholar.google.com/',
+            'https://www.semanticscholar.org/',
+            'https://www.academia.edu/',
+            'https://www.semrush.com/academy/',
+            'https://www.codesignal.com/',
+            'https://www.mygreatlearning.com/',
+            'https://www.nvidia.com/en-us/training/',
+            'https://www.ibm.com/training/'
+
+        ];
+
+        searchButton.addEventListener('click', () => {
+            searchModal.style.display = 'block';
+        });
+
+        document.querySelector('.close-button').addEventListener('click', () => {
+            searchModal.style.display = 'none';
+        });
+
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                const query = searchInput.value;
+                const searchUrls = courseWebsites.map(site =>
+                    `https://www.google.com/search?q=site:${site}+${encodeURIComponent(query)}`
+                );
+                searchResults.innerHTML = searchUrls.map(url =>
+                    `<p><a href="${url}" target="_blank" style="color: #0ff;">Search results from ${url.split('site:')[1].split('+')[0]}</a></p>`
+                ).join('');
+            }
+        });
+    });
+</script>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advait Research Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f0f1a, #1a1a2f, #0f0f1a);
+            color: #fff;
+            overflow-x: hidden;
+            animation: gradientBackground 10s infinite alternate;
+        }
+
+        .owner-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #0ff;
+            margin-left: 15px;
+        }
+
+        .owner-image {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .owner-name {
+            font-size: 1rem;
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 26, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        nav div:first-child {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        nav a {
+            color: #0ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff0;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+            }
+
+            100% {
+                text-shadow: 0 0 25px #ff0, 0 0 50px #ff0;
+            }
+        }
+
+        .head00 {
+            font-size: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+            /* animation: glow 2s infinite alternate; */
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            color: #ccc;
+        }
+
+        /* Glassmorphism Boxes */
+        .section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            /* text-align: center; */
+
+        }
+
+        .box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
+        }
+
+        .box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        .box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .box ul li {
+            margin: 10px 0;
+        }
+
+        .box ul li a {
+            color: #0ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .box ul li a:hover {
+            color: #ff0;
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            color: #0ff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .menu-btn span {
+            width: 100%;
+            height: 3px;
+            background-color: #0ff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: flex;
+            }
+
+            nav div:last-child {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 26, 0.9);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav div:last-child.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(15, 15, 26, 0.9);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        footer a {
+            color: #0ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                font-size: 1rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .box h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Profile Modal Button -->
+    <button id="profile-button"
+        style="position: fixed; left: 20px; top: 80px; padding: 10px; background: rgba(0, 255, 255, 0.2); border: 1px solid #0ff; border-radius: 50%; cursor: pointer; z-index: 1001;">
+        <img src="profile.png" alt="Profile"
+            style="width: 40px; height: 40px; border-radius: 50%; border: 2px solid #0ff;">
+    </button>
+
+    <div id="profile-modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,15,26,0.95); z-index: 2000;">
+        <div
+            style="position: relative; max-width: 800px; margin: 100px auto; padding: 20px; text-align: center; background: rgba(0,0,0,0.5); border-radius: 10px; box-shadow: 0 0 20px rgba(0,255,255,0.5);">
+            <span id="profile-close"
+                style="position: absolute; right: 10px; top: 10px; color: #0ff; font-size: 24px; cursor: pointer;">&times;</span>
+            <img src="profile.png" alt="Profile"
+                style="width: 400px; height: 400px; border-radius: 100%; border: 4px solid #0ff; box-shadow: 0 0 15px rgba(0,255,255,0.7);">
+            <h2 style="margin-top: 10px; font-size:larger;"> Student of Acharya Prashant</h2>
+            <p style="font-size: 1rem;">WhatsApp: +91 9695835858</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('profile-button').addEventListener('click', function () {
+            document.getElementById('profile-modal').style.display = 'block';
+        });
+
+        document.getElementById('profile-close').addEventListener('click', function () {
+            document.getElementById('profile-modal').style.display = 'none';
+        });
+    </script>
+    <!-- Navbar -->
+    <nav>
+        <div>Advait Research Hub</div>
+        <div>
+            <a href="#topuni ">Top Unversities</a>
+            <a href="#reseaweb">Research Websites</a>
+            <a href="#freecourse">Skill Builder Course</a>
+            <a href="#tools">Tools & Utilities</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Welcome to the Advait Research Hub</h1>
+        <p>Your one-stop destination for free resources</p>
+    </header>
+    <div class="section" id="daily">
+        <div class="box">
+            <h2>Daily check webs</h2>
+
+            <ul>
+                <li><a href="https://elearning.iirs.gov.in/edusatregistration/student" target="_blank">ISRO LMS {check
+                        for course} </a></li>
+                <li><a href="https://codeinplace.stanford.edu/" target="_blank"> Courses in Code in Place</a>
+                <li><a href="https://online.stanford.edu/free-courses" target="_blank"> Courses Standform University</a>
+                </li>
+                <li><a href="https://swayam.gov.in//" target="_blank"> Courses from IITs-NITs </a></li>
+                <li><a href="https://alison.com/" target="_blank"> Alison for (Ceertificate of complition)</a></li>
+                <li><a href="https://swayam.gov.in/explorer" target="_blank">Courses from AICTE </a></li>
+                <li><a href="https://learn.microsoft.com/en-us/training/" target="_blank">Courses from Microsoft</a>
+                </li>
+                <li><a href="" target="_blank">Courses from Google </a></li>
+                <ul>
+                    <li><a href="https://grow.google/intl/en_in/learn-skills"> Google Grow</a></li>
+                    <li><a href="https://grow.google/certificates/"> Google career Certificate</a></li>
+                    <li><a href="https://developers.google.com/machine-learning/crash-course"> Google ML course </a>
+                    </li>
+                </ul>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Additional content can go here -->
+    <div class="section" id="topuni">
+        <div class="box">
+            <h2> Courses by Top Unviversities</h2>
+            <ul>
+                <li><a href="https://www.open.edu/openlearn/" target="_blank"> Courses from Open University</a></li>
+                <li><a href="https://codeinplace.stanford.edu/" target="_blank"> Courses in Code in Place</a>
+                <li><a href="https://swayam.gov.in//" target="_blank"> Courses from IITs-NITs </a></li>
+                <li><a href="https://ocw.mit.edu/courses/" target="_blank"> Courses in Courses from MIT</a>
+                <li><a href="https://alison.com/" target="_blank"> Alison for (Ceertificate of complition)</a></li>
+                <li><a href="https://swayam.gov.in/explorer" target="_blank">Courses from AICTE </a></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="section" id="orgcourse">
+        <div class="box">
+            <h2> Organisations</h2>
+            <ul>
+
+                <li><a href="https://elearning.iirs.gov.in/edusatregistration/student" target="_blank">ISRO LMS {check
+                        for course} </a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- Sections -->
+    <div class="section" id="reseaweb">
+        <div class="box">
+            <h2>Webs for research </h2>
+            <ul>
+                <li><a href="https://coursejoiner.com/" target="_blank">Course Joiner</a></li>
+                <li><a href="https://www.coursesity.com/" target="_blank">Coursesity </a></li>
+                <li><a href="https://www.futurelearn.com/" target="_blank">Future Learn</a></li>
+                <li><a href="https://www.freecodecamp.org/" target="_blank">Free Code Camp</a></li>
+                <li><a href="https://www.linkedin.com/learning/" target="_blank">Linked In learning </a></li>
+                <li><a href="https://nptel.ac.in/" target="_blank"><strong>Neptel </strong> We For IIT and IISc courses
+                    </a></li>
+                <li><a href="https://www.futurelearn.com/" target="_blank"></a></li>
+                <li><a href="https://www.classcentral.com/" target="_blank">Class Central</a></li>
+                <li><a href="https://www.mooc-list.com/" target="_blank">list of MOOCs and free online courses</a></li>
+                <li><a href="https://arxiv.org" target="_blank">arXiv</a></li>
+                <li><a href="https://www.researchgate.net" target="_blank">ResearchGate</a></li>
+                <li><a href="https://scholar.google.com" target="_blank">Google Scholar</a></li>
+                <li><a href="https://www.semanticscholar.org" target="_blank">Semantic Scholar</a></li>
+                <li><a href="https://www.academia.edu" target="_blank">Academia.edu</a></li>
+                <div class="section">
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="section" id="otherplateform">
+        <div class="box">
+            <h2>📚 Other Plateforms</h2>
+
+            <ul>
+                <li> <a href="https://www.semrush.com/academy/">Semrush</a> </li>
+                <li> <a href="https://www.codesignal.com/">Code Signal</a> </li>
+                <li> <a href="https://www.mygreatlearning.com/">Great Learning {Farzi hai lekin farzi certificate keliye
+                        use kar sakte hain}</a> </li>
+                <li> <a href="https://www.nvidia.com/en-us/training/">Nvidia Traning</a></li>
+                <li> <a href="https://www.ibm.com/training/">IBM Tranings</a> </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div  class="section" id="websites" >
+      
+    <div class="box">
+        <h2>➕ Other Resources</h2>
+        <ul>
+             <li>Government of India (Gen AI Course): <a href="https://www.myskills.gov.in/gen-ai">https://www.myskills.gov.in/gen-ai</a> 5</li> 
+        </ul>
+    </div> 
+    </div> -->
+
+
+
+    <!-- Footer -->
+    <div class="section" id="id">
+        <div class="box">
+            <h2>Imoportent Sites for Hacking Certification</h2>
+            <ul>
+                <li><a
+                        href="https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/">
+                        Free Ethical Hacking Certification by EC Counsil </a></li>
+                <li><a href="https://www.cybrary.it/free-content">Free Ethical Hacking Certification by Cubrary </a>
+                </li>
+                <li><a href="https://alison.com/course/professional-ethical-hacking">Free Ethical Hacking Certification
+                        by Alison </a></li>
+                <li><a href="https://www.hacker101.com/">Free Ethical Hacking Certification by Hacker 101</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="section" id="id">
+        <div class="box">
+            <h2>EC Counsil Free Certification</h2>
+            <ul>
+                <li><a
+                        href="https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/">
+                        free cybersecurity courses beginners</a></li>
+                <li><a href="https://www.eccouncil.org/free-resources/"> Free Resources and Webinars</a></li>
+                <li> <a
+                        href="https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/">Ethical
+                        Hacking Essentials (E|HE)</a> </li>
+                <li><a
+                        href="https://www.eccouncil.org/cybersecurity-exchange/cyber-novice/free-cybersecurity-courses-beginners/">
+                        Network Defense Essentials (N|DE)</a></li>
+                <li><a href="https://www.eccouncil.org/train-certify/digital-forensics-essentials-dfe/"> Digital
+                        Forensics Essentials (D|FE)</a></li>
+                <li><a
+                        href="https://www.eccouncil.org/ec-council-in-news/ec-council-launches-the-essentials-series-a-free-entry-level-cybersecurity-program/">Essentials
+                        Series (Combined)</a></li>
+                <li><a
+                        href="https://www.eccouncil.org/cybersecurity-exchange/ethical-hacking/free-ethical-hacking-courses/">
+                        Python SQL HAcking and many more</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section" id="id">
+        <div class="box">
+            <h2>Roadmap in the field of Tech</h2>
+            <ul>
+                <li><a href="backend.md" target="_blank">View Backend Roadmap</a></li>
+                <li><a href="beginners-guide.md" target="_blank">View Beginners Guide Roadmap</a></li>
+                <li><a href="confusion.md" target="_blank">View Confusion Roadmap</a></li>
+                <li><a href="consistency-guide.md" target="_blank">View Consistency Guide Roadmap</a></li>
+                <li><a href="dsa-vs-dev.md" target="_blank">View DSA vs Dev Roadmap</a></li>
+                <li><a href="full-stack.md" target="_blank">View Full Stack Roadmap</a></li>
+                <li><a href="hackathon-guide.md" target="_blank">View Hackathon Guide Roadmap</a></li>
+                <li><a href="javascript.md" target="_blank">View Javascript Roadmap</a></li>
+                <li><a href="linkedin.md" target="_blank">View Linkedin Roadmap</a></li>
+                <li><a href="placement.md" target="_blank">View Placement Roadmap</a></li>
+                <li><a href="README.md" target="_blank">View README Roadmap</a></li>
+                <li><a href="scholarships.md" target="_blank">View Scholarships Roadmap</a></li>
+                <li><a href="strategy.md" target="_blank">View Strategy Roadmap</a></li>
+                <li><a href="English Communication.docx.pdf">English Noob to Pro roadmap</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section" id="project">
+        <div class="box">
+            <h2>Projects 😜</h2>
+            <ul>
+                <li><a href="500+ Project PDF.pdf"> 500+ Projects every field</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="section" id="id">
+        <div class="box">
+            <h2>Importent Link Trees {one of the most powerful thing on whole web }</h2>
+            <ul>
+                <li><a href="https://linktr.ee/trickyworld23">Tricky World </a></li>
+                <li><a href=""></a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="section" id="id">
+        <div class="box">
+            <h2>Best Websites</h2>
+            <ul>
+                <li><a href="https://build.superteam.fun/"> Build Super Team</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="section" id="id">
+        <div class="box">
+            <h2>Best Whatsapp Groups</h2>
+            <ul></ul>
+        </div>
+    </div> -->
+    <div class="section" id="id">
+        <div class="box">
+            <h2 style="cursor: pointer;" onclick="toggleContent('hacking-books-content')">
+                Hacking Books <span style="font-size: 1.2rem;">&#9660;</span>
+            </h2>
+            <span style="color: red;"> Note:Every pdf of book is designed by a Hacker so be alert </span>
+            <ul id="hacking-books-content" style="display: none;">
+                <li><a href="https://www.yeahhub.com/biggest-hacking-security-ebooks-collection-free-download">
+                        100Books[Link] </a></li>
+                <li><a
+                        href="https://drive.google.com/drive/folders/1F7D5c30nP-y_Q7SFqoRTRvJ7tl0UcY3q?mcp_token=eyJwaWQiOjIzOTk1ODIsInNpZCI6MTY1MDcxNDYyMywiYXgiOiI5NDBiYzViMDlhMDc3NDExZDgwZTk3YTc4OTk5ZWQwNiIsInRzIjoxNzQwODA1MDY5LCJleHAiOjE3NDMyMjQyNjl9.8IDG0wBosxBwzlg0ZYr2yklySCxJMz5N3F09sydZu4o">
+                        Itni Books padhne ke baad Baap level Hacker honge aap [link]</a></li>
+                <li><a href="CCIP IPSec GRE Tunnel OSPF (1).pdf"> CCIP IPSec GRE Tunnel OSPF (1)[PDF]</a></li>
+                <li><a href="IOS_Zone-Based_Firewall.pdf">IOS_Zone-Based_Firewall [PDF]</a></li>
+                <li><a href="IoT2doc.pdf">IoT2doc [PDF]</a></li>
+                <li><a href="ip_addressing__subnetting_workbook.pdf">ip_addressing__subnetting_workbook [PDF]</a></li>
+                <li><a href="IPSec.pdf">IPSec [PDF]</a></li>
+                <li><a href="IPv4_Multicast.pdf">IPv4_Multicast [PDF]</a></li>
+                <li><a href="IPv4_Subnetting.pdf">IPv4_Subnetting [PDF]</a></li>
+                <li><a href="IPv6.pdf">IPv6 [PDF]</a></li>
+                <li><a href="Markdown.pdf">Markdown [PDF]</a></li>
+                <li><a href="MediaWiki.pdf">MediaWiki [PDF]</a></li>
+                <li><a href="MediaWiki (1).pdf">MediaWiki (1) [PDF]</a></li>
+                <li><a href="NAT.pdf">NAT [PDF]</a></li>
+                <li><a href="Network_Protocols_-_Port_Numbers.pdf">Network_Protocols_-_Port_Numbers [PDF]</a></li>
+                <li><a href="OSI_Model_Reference_Chart.pdf">OSI_Model_Reference_Chart [PDF]</a></li>
+                <li><a href="OSPF (1).pdf">OSPF (1) [PDF]</a></li>
+                <li><a href="physical_terminations.pdf">physical_terminations [PDF]</a></li>
+                <li><a href="PPP.pdf">PPP [PDF]</a></li>
+                <li><a href="QoS.pdf">QoS [PDF]</a></li>
+                <li><a href="redundancy_load_balancing.pdf">redundancy_load_balancing [PDF]</a></li>
+                <li><a href="RIP.pdf">RIP [PDF]</a></li>
+                <li><a href="scapy.pdf">scapy [PDF]</a></li>
+                <li><a href="Spanning_Tree.pdf">Spanning_Tree [PDF]</a></li>
+                <li><a href="SPECIFICATION.pdf">SPECIFICATION [PDF]</a></li>
+                <li><a href="Subnetting-Question-_Solution.pdf">Subnetting-Question-_Solution [PDF]</a></li>
+                <li><a href="tcpdump.pdf">tcpdump [PDF]</a></li>
+                <li><a href="TCPIPTutorial.pdf">TCPIPTutorial [PDF]</a></li>
+                <li><a href="VLANs.pdf">VLANs [PDF]</a></li>
+                <li><a href="40 Spanning Tree Protocol Questions with Explanations.pdf">40 Spanning Tree Protocol Questions with Explanations [PDF]</a></li>
+                <li><a href="200-301-CCNA.pdf">200-301-CCNA [PDF]</a></li>
+                <li><a href="BGP.pdf">BGP [PDF]</a></li>
+                <li><a href="CCIP IPSec GRE Tunnel OSPF.pdf">CCIP IPSec GRE Tunnel OSPF [PDF]</a></li>
+                <li><a href="CCIP IPSec GRE Tunnel OSPF (1).pdf">CCIP IPSec GRE Tunnel OSPF (1) [PDF]</a></li>
+                <li><a href="CCNA 2 Revision All Modules(1).pdf">CCNA 2 Revision All Modules(1) [PDF]</a></li>
+                <li><a href="CCNA PROJECT 1.pdf">CCNA PROJECT 1 [PDF]</a></li>
+                <li><a href="ccna-all-command.pdf">ccna-all-command [PDF]</a></li>
+                <li><a href="ccna-interview-questions.pdf">ccna-interview-questions [PDF]</a></li>
+                <li><a href="ccna-interview-questions (1).pdf">ccna-interview-questions (1) [PDF]</a></li>
+                <li><a href="ccnp-enterprise-at-a-glance.pdf">ccnp-enterprise-at-a-glance [PDF]</a></li>
+                <li><a href="CCTV TRAINING MANUAL.pdf">CCTV TRAINING MANUAL [PDF]</a></li>
+                <li><a href="CCTV-Tech-HBK_0713-508.pdf">CCTV-Tech-HBK_0713-508 [PDF]</a></li>
+                <li><a href="Cisco_Commands.pdf">Cisco_Commands [PDF]</a></li>
+                <li><a href="Cisco_IOS_Versions.pdf">Cisco_IOS_Versions [PDF]</a></li>
+                <li><a href="common_ports.pdf">common_ports [PDF]</a></li>
+                <li><a href="CONNECTING SMALL OFFICE TO ISP.pdf">CONNECTING SMALL OFFICE TO ISP [PDF]</a></li>
+                <li><a href="Designing ATM MPLS Networks.pdf">Designing ATM MPLS Networks [PDF]</a></li>
+                <li><a href="EIGRP.pdf">EIGRP [PDF]</a></li>
+                <li><a href="EIGRP Commands.pdf">EIGRP Commands [PDF]</a></li>
+                <li><a href="First_Hop_Redundancy.pdf">First_Hop_Redundancy [PDF]</a></li>
+                <li><a href="Frame_Mode_MPLS.pdf">Frame_Mode_MPLS [PDF]</a></li>
+                <li><a href="Hacking_Firewalls_And_Networks_How.pdf">Hacking_Firewalls_And_Networks_How [PDF]</a></li>
+                <li><a href="IEEE_802.1X.pdf">IEEE_802.1X [PDF]</a></li>
+                <li><a href="IOS_Interior_Routing_Protocols.pdf">IOS_Interior_Routing_Protocols [PDF]</a></li>
+                <li><a href="IOS_IPv4_Access_Lists.pdf">IOS_IPv4_Access_Lists [PDF]</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+    <!-- <div class="section" id="freecourses" >
+        <div class="box">
+            <h2>Best Telegram Chennal</h2>
+            <ul></ul> -->
+    </div>
+    </div>
+    <h1 class="head00">Courses to boost your skills</h>
+        <div class="section" id="">
+            <div class="box">
+                <h2>Web development</h2>
+                <ul>
+                    <li>
+                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&feature=shared"> Web dev MERN Stack</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="">
+            <div class="box">
+                <h2>Python</h2>
+                <ul>
+                    <li>
+                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg&feature=shared"> Python 100 Days</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="">
+            <div class="box">
+                <h2>C Programming</h2>
+                <ul>
+                    <li>
+                        <a href="https://youtu.be/aZb0iu4uGwA?feature=shared">In 1 video but best quality</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="">
+            <div class="box">
+                <h2>Hacking  </h2>
+                <ul>
+                    <li>
+                        <a href="https://mega.nz/folder/4vUA3DAJ#H99PsNAR8Foaw1cGKwmTnw">CEH + CSEH full next level Course</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="section" id="">
+            <div class="box">
+                <h2>Programming for windows automation and virus creation for windows </h2>
+                <ul>
+                    <li>
+                        <a href="https://youtube.com/playlist?list=PL8WTXLSrtyWrQ5Tl50zkTeRc3bATyHRbX&feature=shared"> Batch  Script </a>
+                    </li>
+                    <li>
+                        <a href="https://youtube.com/playlist?list=PL0tP8lerTbX3MeIyMxGW2sLhWnPdn_xhd&feature=shared">Bash For Hacking Tool Creation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; <span id="year"></span> Advait Research Hub. All rights reserved.</p>
+        </footer>
+
+        <script>
+            // Dynamic Year Update
+            document.getElementById('year').textContent = new Date().getFullYear();
+        </script>
+</body>
+
+</html>
