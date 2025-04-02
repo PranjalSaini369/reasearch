@@ -341,6 +341,17 @@
         }
     </style>
     <script>
+           document.addEventListener('DOMContentLoaded', function () {
+            const correctPassword = "Aacharya Prashant"; // Set your password here
+            let userPassword = prompt("Enter the password to access this content:");
+
+            while (userPassword !== correctPassword) {
+                alert("Incorrect password. Please try again.");
+                userPassword = prompt("Enter the password to access this content:");
+            }
+
+            alert("Access granted!");
+        });
         document.addEventListener('DOMContentLoaded', function () {
             const searchButton = document.createElement('button');
             searchButton.className = 'search-button';
