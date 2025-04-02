@@ -1,170 +1,80 @@
 <!DOCTYPE html>
-<style>
-    /* Search Button and Modal Styles */
-    .search-button {
-        position: fixed;
-        right: 20px;
-        top: 80px;
-        padding: 10px 20px;
-        background: rgba(0, 255, 255, 0.2);
-        border: 1px solid #0ff;
-        color: #0ff;
-        border-radius: 20px;
-        cursor: pointer;
-        font-family: 'Orbitron', sans-serif;
-        z-index: 1001;
-        transition: all 0.3s ease;
-    }
-
-    .search-button:hover {
-        background: rgba(0, 255, 255, 0.4);
-        transform: scale(1.05);
-    }
-
-    .search-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(15, 15, 26, 0.95);
-        z-index: 2000;
-    }
-
-    .search-container {
-        position: relative;
-        max-width: 800px;
-        margin: 100px auto;
-        padding: 20px;
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 15px;
-        font-size: 1.2rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid #0ff;
-        border-radius: 10px;
-        color: #fff;
-        outline: none;
-    }
-
-    .search-results {
-        margin-top: 20px;
-        padding: 20px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.05);
-    }
-
-    .close-button {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        color: #0ff;
-        font-size: 24px;
-        cursor: pointer;
-    }
-</style>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchButton = document.createElement('button');
-        searchButton.className = 'search-button';
-        searchButton.textContent = 'Search';
-        document.body.appendChild(searchButton);
-
-        const searchModal = document.createElement('div');
-        searchModal.className = 'search-modal';
-        searchModal.innerHTML = `
-            <div class="search-container">
-                <span class="close-button">&times;</span>
-                <input type="text" class="search-input" placeholder="Search for courses...">
-                <div class="search-results"></div>
-            </div>
-        `;
-        document.body.appendChild(searchModal);
-
-        const courseWebsites = [
-            'coursera.org',
-            'udemy.com',
-            'coursesity.com',
-            'coursejoiner.com',
-            'isro.gov.in/learning-center',
-            'nptel.ac.in',
-            'swayam.gov.in',
-            'https://elearning.iirs.gov.in/edusatregistration/student',
-            'https://codeinplace.stanford.edu/',
-            'https://online.stanford.edu/free-courses',
-            'https://swayam.gov.in//',
-            'https://alison.com/',
-            'https://swayam.gov.in/explorer',
-            'https://learn.microsoft.com/en-us/training/',
-            'https://grow.google/intl/en_in/learn-skills',
-            'https://grow.google/certificates/',
-            'https://developers.google.com/machine-learning/crash-course',
-            'https://www.open.edu/openlearn/',
-            'https://codeinplace.stanford.edu/',
-            'https://swayam.gov.in//',
-            'https://ocw.mit.edu/courses/',
-            'https://alison.com/',
-            'https://swayam.gov.in/explorer',
-            'https://elearning.iirs.gov.in/edusatregistration/student',
-            'https://coursejoiner.com/',
-            'https://www.coursesity.com/',
-            'https://www.futurelearn.com/',
-            'https://www.freecodecamp.org/',
-            'https://www.linkedin.com/learning/',
-            'https://nptel.ac.in/',
-            'https://www.futurelearn.com/',
-            'https://www.classcentral.com/',
-            'https://www.mooc-list.com/',
-            'https://arxiv.org/',
-            'https://www.researchgate.net/',
-            'https://scholar.google.com/',
-            'https://www.semanticscholar.org/',
-            'https://www.academia.edu/',
-            'https://www.semrush.com/academy/',
-            'https://www.codesignal.com/',
-            'https://www.mygreatlearning.com/',
-            'https://www.nvidia.com/en-us/training/',
-            'https://www.ibm.com/training/'
-
-        ];
-
-        searchButton.addEventListener('click', () => {
-            searchModal.style.display = 'block';
-        });
-
-        document.querySelector('.close-button').addEventListener('click', () => {
-            searchModal.style.display = 'none';
-        });
-
-        const searchInput = document.querySelector('.search-input');
-        const searchResults = document.querySelector('.search-results');
-
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') {
-                const query = searchInput.value;
-                const searchUrls = courseWebsites.map(site =>
-                    `https://www.google.com/search?q=site:${site}+${encodeURIComponent(query)}`
-                );
-                searchResults.innerHTML = searchUrls.map(url =>
-                    `<p><a href="${url}" target="_blank" style="color: #0ff;">Search results from ${url.split('site:')[1].split('+')[0]}</a></p>`
-                ).join('');
-            }
-        });
-    });
-</script>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advait Research Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap"
         rel="stylesheet">
     <style>
-        /* General Styling */
+        .search-button {
+            position: fixed;
+            right: 20px;
+            top: 80px;
+            padding: 10px 20px;
+            background: rgba(0, 255, 255, 0.2);
+            border: 1px solid #0ff;
+            color: #0ff;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            background: rgba(0, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .search-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 26, 0.95);
+            z-index: 2000;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+        }
+
+        .search-results {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .close-button {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: #0ff;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
@@ -430,6 +340,101 @@
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchButton = document.createElement('button');
+            searchButton.className = 'search-button';
+            searchButton.textContent = 'Search';
+            document.body.appendChild(searchButton);
+
+            const searchModal = document.createElement('div');
+            searchModal.className = 'search-modal';
+            searchModal.innerHTML = `
+                <div class="search-container">
+                    <span class="close-button">&times;</span>
+                    <input type="text" class="search-input" placeholder="Search for courses...">
+                    <div class="search-results"></div>
+                </div>
+            `;
+            document.body.appendChild(searchModal);
+
+            const courseWebsites = [
+                'coursera.org',
+                'udemy.com',
+                'coursesity.com',
+                'coursejoiner.com',
+                'isro.gov.in/learning-center',
+                'nptel.ac.in',
+                'swayam.gov.in',
+                'https://elearning.iirs.gov.in/edusatregistration/student',
+                'https://codeinplace.stanford.edu/',
+                'https://online.stanford.edu/free-courses',
+                'https://swayam.gov.in//',
+                'https://alison.com/',
+                'https://swayam.gov.in/explorer',
+                'https://learn.microsoft.com/en-us/training/',
+                'https://grow.google/intl/en_in/learn-skills',
+                'https://grow.google/certificates/',
+                'https://developers.google.com/machine-learning/crash-course',
+                'https://www.open.edu/openlearn/',
+                'https://codeinplace.stanford.edu/',
+                'https://swayam.gov.in//',
+                'https://ocw.mit.edu/courses/',
+                'https://alison.com/',
+                'https://swayam.gov.in/explorer',
+                'https://elearning.iirs.gov.in/edusatregistration/student',
+                'https://coursejoiner.com/',
+                'https://www.coursesity.com/',
+                'https://www.futurelearn.com/',
+                'https://www.freecodecamp.org/',
+                'https://www.linkedin.com/learning/',
+                'https://nptel.ac.in/',
+                'https://www.futurelearn.com/',
+                'https://www.classcentral.com/',
+                'https://www.mooc-list.com/',
+                'https://arxiv.org/',
+                'https://www.researchgate.net/',
+                'https://scholar.google.com/',
+                'https://www.semanticscholar.org/',
+                'https://www.academia.edu/',
+                'https://www.semrush.com/academy/',
+                'https://www.codesignal.com/',
+                'https://www.mygreatlearning.com/',
+                'https://www.nvidia.com/en-us/training/',
+                'https://www.ibm.com/training/'
+
+            ];
+
+            searchButton.addEventListener('click', () => {
+                searchModal.style.display = 'block';
+            });
+
+            document.querySelector('.close-button').addEventListener('click', () => {
+                searchModal.style.display = 'none';
+            });
+
+            const searchInput = document.querySelector('.search-input');
+            const searchResults = document.querySelector('.search-results');
+
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value;
+                    const searchUrls = courseWebsites.map(site =>
+                        `https://www.google.com/search?q=site:${site}+${encodeURIComponent(query)}`
+                    );
+                    searchResults.innerHTML = searchUrls.map(url =>
+                        `<p><a href="${url}" target="_blank" style="color: #0ff;">Search results from ${url.split('site:')[1].split('+')[0]}</a></p>`
+                    ).join('');
+                }
+            });
+        });
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+
 </head>
 
 <body>
@@ -571,14 +576,14 @@
         </div>
     </div>
     <!-- <div  class="section" id="websites" >
-      
-    <div class="box">
-        <h2>➕ Other Resources</h2>
-        <ul>
-             <li>Government of India (Gen AI Course): <a href="https://www.myskills.gov.in/gen-ai">https://www.myskills.gov.in/gen-ai</a> 5</li> 
-        </ul>
-    </div> 
-    </div> -->
+          
+        <div class="box">
+            <h2>➕ Other Resources</h2>
+            <ul>
+                 <li>Government of India (Gen AI Course): <a href="https://www.myskills.gov.in/gen-ai">https://www.myskills.gov.in/gen-ai</a> 5</li> 
+            </ul>
+        </div> 
+        </div> -->
 
 
 
@@ -673,11 +678,11 @@
         </div>
     </div>
     <!-- <div class="section" id="id">
-        <div class="box">
-            <h2>Best Whatsapp Groups</h2>
-            <ul></ul>
-        </div>
-    </div> -->
+            <div class="box">
+                <h2>Best Whatsapp Groups</h2>
+                <ul></ul>
+            </div>
+        </div> -->
     <div class="section" id="id">
         <div class="box">
             <h2 style="cursor: pointer;" onclick="toggleContent('hacking-books-content')">
@@ -717,7 +722,8 @@
                 <li><a href="tcpdump.pdf">tcpdump [PDF]</a></li>
                 <li><a href="TCPIPTutorial.pdf">TCPIPTutorial [PDF]</a></li>
                 <li><a href="VLANs.pdf">VLANs [PDF]</a></li>
-                <li><a href="40 Spanning Tree Protocol Questions with Explanations.pdf">40 Spanning Tree Protocol Questions with Explanations [PDF]</a></li>
+                <li><a href="40 Spanning Tree Protocol Questions with Explanations.pdf">40 Spanning Tree Protocol
+                        Questions with Explanations [PDF]</a></li>
                 <li><a href="200-301-CCNA.pdf">200-301-CCNA [PDF]</a></li>
                 <li><a href="BGP.pdf">BGP [PDF]</a></li>
                 <li><a href="CCIP IPSec GRE Tunnel OSPF.pdf">CCIP IPSec GRE Tunnel OSPF [PDF]</a></li>
@@ -748,25 +754,21 @@
         </div>
     </div>
 
-    <script>
-        function toggleContent(id) {
-            const content = document.getElementById(id);
-            content.style.display = content.style.display === 'none' ? 'block' : 'none';
-        }
-    </script>
-    <!-- <div class="section" id="freecourses" >
-        <div class="box">
-            <h2>Best Telegram Chennal</h2>
-            <ul></ul> -->
+
+    <!-- <div class="section"  >
+            <div class="box">
+                <h2>Best Telegram Chennal</h2>
+                <ul></ul> -->
     </div>
     </div>
-    <h1 class="head00">Courses to boost your skills</h>
+    <h1  id="freecourses" class="head00">Courses to boost your skills</h>
         <div class="section" id="">
             <div class="box">
                 <h2>Web development</h2>
                 <ul>
                     <li>
-                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&feature=shared"> Web dev MERN Stack</a>
+                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w&feature=shared">
+                            Web dev MERN Stack</a>
                     </li>
                 </ul>
             </div>
@@ -776,7 +778,8 @@
                 <h2>Python</h2>
                 <ul>
                     <li>
-                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg&feature=shared"> Python 100 Days</a>
+                        <a href="https://youtube.com/playlist?list=PLu0W_9lII9agwh1XjRt242xIpHhPT2llg&feature=shared">
+                            Python 100 Days</a>
                     </li>
                 </ul>
             </div>
@@ -793,10 +796,11 @@
         </div>
         <div class="section" id="">
             <div class="box">
-                <h2>Hacking  </h2>
+                <h2>Hacking </h2>
                 <ul>
                     <li>
-                        <a href="https://mega.nz/folder/4vUA3DAJ#H99PsNAR8Foaw1cGKwmTnw">CEH + CSEH full next level Course</a>
+                        <a href="https://mega.nz/folder/4vUA3DAJ#H99PsNAR8Foaw1cGKwmTnw">CEH + CSEH full next level
+                            Course</a>
                     </li>
                 </ul>
             </div>
@@ -806,10 +810,12 @@
                 <h2>Programming for windows automation and virus creation for windows </h2>
                 <ul>
                     <li>
-                        <a href="https://youtube.com/playlist?list=PL8WTXLSrtyWrQ5Tl50zkTeRc3bATyHRbX&feature=shared"> Batch  Script </a>
+                        <a href="https://youtube.com/playlist?list=PL8WTXLSrtyWrQ5Tl50zkTeRc3bATyHRbX&feature=shared">
+                            Batch Script </a>
                     </li>
                     <li>
-                        <a href="https://youtube.com/playlist?list=PL0tP8lerTbX3MeIyMxGW2sLhWnPdn_xhd&feature=shared">Bash For Hacking Tool Creation</a>
+                        <a href="https://youtube.com/playlist?list=PL0tP8lerTbX3MeIyMxGW2sLhWnPdn_xhd&feature=shared">Bash
+                            For Hacking Tool Creation</a>
                     </li>
                 </ul>
             </div>
@@ -819,7 +825,6 @@
         </footer>
 
         <script>
-            // Dynamic Year Update
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
 </body>
