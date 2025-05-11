@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <title>Syllabus</title>
+    <title itemtype=""  ></title>
+    <link rel="icon" href="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" type="image/png">
+    <style>
+        title {
+            font-family: 'Orbitron', sans-serif;
+            color: #ff6f61; /* Coral */
+            text-align: center;
+            margin-top: 20px;
+            
+        }
+        title 
+        .list:hover {
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+            transform: translateY(0);
+            }
+            50% {
+            transform: translateY(-10px);
+            }
+        }
+
+        .list {
+            color: #ff6f61; /* Coral */
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .list:hover {
+            color: #ffcc00; /* Golden Yellow */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <style>
+        /* .box:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(135deg, #004e92, #000428);
+        } */
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            animation: gradientShift 1s ease infinite;
+            background-size: 400% 400%;
+            background: repeating-linear-gradient(180deg, red, orange, yellow, green, blue, indigo, violet);
+            animation: gradientBG 10s ease infinite;
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            flex: 1 1 calc(33.33% - 20px); /* Adjust width to fit 3 boxes per row */
+            margin: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            color: rgb(19, 167, 194);
+            border: rgb(55, 175, 250) 5px solid;
+            display: inline-block;
+            /* padding: 33%; */
+            margin: auto;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            padding: 20px;
+            align-items: center;
+            background-color: #e6f7ff;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: linear-gradient(135deg, #000428, #004e92);
+            justify-content: top;
+            border: dashed 3px #ffffff;
+            border-radius: 10px;
+        }
+        .list{
+            list-style-position: inside;
+            list-style-type: disc;
+            margin-left: 5px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box" id="maths">
+        <h1 class="heading">Maths</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+    <div class="box" id="physics">
+        <h1 class="subhead">Physics</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+    <div class="box" id="em">
+        <h1 class="subhead">Engineering Machenics</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+    <div class="box" id="evs">
+        <h1 class="subhead">Enviromental Science</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+    <div class="box" id="it">
+        <h1 class="subhead">IT Systems</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+    <div class="box" id="feee">
+        <h1 class="subhead">FEEE</h1>
+        <p class="tasks">
+        <ol>
+            <li class="list">Marathon/Oneshot</li>
+            <li class="list">Imp Questions</li>
+            <li class="list">Previus Year Questions</li>
+            <li class="list">Notes by Chat Gpt </li>
+        </ol>
+        </p>
+    </div>
+</body>
+
+</html>
