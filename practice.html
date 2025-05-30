@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Platform | Practice & IQ Testing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #1a2a6c;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            color: #b21f1f;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        /* Practice Blocks Section */
+        .practice-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a2a6c;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #b21f1f;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #4a69bd;
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .practice-card {
+            background: linear-gradient(135deg, #1a2a6c, #4a69bd);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .practice-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+        
+        .practice-icon {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1a2a6c;
+            font-size: 1.5rem;
+        }
+        
+        .practice-title {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .practice-list {
+            list-style-type: none;
+        }
+        
+        .practice-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .practice-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .practice-list a {
+            color: #ffd166;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .practice-list a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .practice-list a i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* IQ Test Section */
+        .iq-section {
+            background: linear-gradient(135deg, #0c2461, #1e3799);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .iq-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .iq-info {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .iq-test {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        .iq-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd166;
+        }
+        
+        .iq-desc {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .iq-resources {
+            margin-top: 30px;
+        }
+        
+        .iq-resources h3 {
+            color: #ffd166;
+            margin-bottom: 15px;
+        }
+        
+        .iq-test-content {
+            text-align: center;
+        }
+        
+        .iq-question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .iq-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .iq-option {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4a69bd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .iq-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #ffd166;
+        }
+        
+        .iq-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .iq-btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        .iq-result {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .iq-score {
+            font-size: 2rem;
+            color: #ffd166;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+        }
+        
+        .footer-col h3 {
+            color: #ffd166;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffd166;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            margin-top: 20px;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .iq-container {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Intensive Learning Platform</h1>
+            <div class="subtitle">Master Python, Mathematics, Machine Learning & More</div>
+            <p>Practice resources and cognitive testing to enhance your learning journey</p>
+        </header>
+        
+        <!-- Practice Blocks Section -->
+        <section class="practice-section">
+            <h2 class="section-title">Practice Areas</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+                Sharpen your skills with these specialized practice resources
+            </p>
+            
+            <div class="practice-grid">
+                <!-- Python -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="practice-title">Python Practice</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://leetcode.com/problemset/all/" target="_blank"><i class="fas fa-code"></i> LeetCode Challenges</a></li>
+                        <li><a href="https://www.hackerrank.com/domains/python" target="_blank"><i class="fas fa-laptop-code"></i> HackerRank Python</a></li>
+                        <li><a href="https://www.codewars.com/" target="_blank"><i class="fas fa-medal"></i> CodeWars Katas</a></li>
+                        <li><a href="https://exercism.org/tracks/python" target="_blank"><i class="fas fa-running"></i> Exercism Python Track</a></li>
+                        <li><a href="https://projecteuler.net/" target="_blank"><i class="fas fa-calculator"></i> Project Euler</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Mathematics -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="practice-title">Mathematics</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://brilliant.org/" target="_blank"><i class="fas fa-brain"></i> Brilliant Math</a></li>
+                        <li><a href="https://www.khanacademy.org/math" target="_blank"><i class="fas fa-chalkboard-teacher"></i> Khan Academy</a></li>
+                        <li><a href="https://artofproblemsolving.com/" target="_blank"><i class="fas fa-puzzle-piece"></i> Art of Problem Solving</a></li>
+                        <li><a href="https://www.wolframalpha.com/" target="_blank"><i class="fas fa-infinity"></i> Wolfram Alpha</a></li>
+                        <li><a href="https://www.math-exercises.com/" target="_blank"><i class="fas fa-book"></i> Math Exercises</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Machine Learning -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="practice-title">Machine Learning</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://www.kaggle.com/learn" target="_blank"><i class="fas fa-trophy"></i> Kaggle Courses</a></li>
+                        <li><a href="https://www.datacamp.com/" target="_blank"><i class="fas fa-database"></i> DataCamp Projects</a></li>
+                        <li><a href="https://www.coursera.org/specializations/machine-learning" target="_blank"><i class="fas fa-graduation-cap"></i> Coursera ML</a></li>
+                        <li><a href="https://github.com/AMAI-GmbH/AI-Expert-Roadmap" target="_blank"><i class="fab fa-github"></i> ML Roadmap</a></li>
+                        <li><a href="https://www.fast.ai/" target="_blank"><i class="fas fa-bolt"></i> Fast.ai</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Data Structures -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="practice-title">Data Structures</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://visualgo.net/en" target="_blank"><i class="fas fa-eye"></i> VisuAlgo</a></li>
+                        <li><a href="https://www.geeksforgeeks.org/data-structures/" target="_blank"><i class="fas fa-laptop-code"></i> GeeksforGeeks</a></li>
+                        <li><a href="https://leetcode.com/explore/learn/card/data-structure/" target="_blank"><i class="fas fa-layer-group"></i> LeetCode Cards</a></li>
+                        <li><a href="https://www.interviewcake.com/data-structures-reference" target="_blank"><i class="fas fa-book"></i> Interview Cake</a></li>
+                        <li><a href="https://www.hackerearth.com/practice/data-structures/" target="_blank"><i class="fas fa-dumbbell"></i> HackerEarth</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Algorithms -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-sort-amount-down"></i>
+                        </div>
+                        <div class="practice-title">Algorithms</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/" target="_blank"><i class="fas fa-code"></i> TopCoder</a></li>
+                        <li><a href="https://codeforces.com/" target="_blank"><i class="fas fa-laptop"></i> CodeForces</a></li>
+                        <li><a href="https://www.codility.com/" target="_blank"><i class="fas fa-tasks"></i> Codility</a></li>
+                        <li><a href="https://www.algoexpert.io/product" target="_blank"><i class="fas fa-star"></i> AlgoExpert</a></li>
+                        <li><a href="https://adventofcode.com/" target="_blank"><i class="fas fa-calendar-alt"></i> Advent of Code</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Web Development -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="practice-title">Web Development</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://www.freecodecamp.org/" target="_blank"><i class="fas fa-laptop-code"></i> FreeCodeCamp</a></li>
+                        <li><a href="https://frontendmentor.io/" target="_blank"><i class="fas fa-paint-brush"></i> Frontend Mentor</a></li>
+                        <li><a href="https://codepen.io/challenges" target="_blank"><i class="fab fa-codepen"></i> CodePen Challenges</a></li>
+                        <li><a href="https://www.theodinproject.com/" target="_blank"><i class="fas fa-book"></i> The Odin Project</a></li>
+                        <li><a href="https://javascript30.com/" target="_blank"><i class="fab fa-js"></i> JavaScript30</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Databases -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="practice-title">Databases</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://sqlzoo.net/" target="_blank"><i class="fas fa-database"></i> SQL Zoo</a></li>
+                        <li><a href="https://www.sql-practice.com/" target="_blank"><i class="fas fa-server"></i> SQL Practice</a></li>
+                        <li><a href="https://www.mongodb.com/developer/" target="_blank"><i class="fas fa-leaf"></i> MongoDB University</a></li>
+                        <li><a href="https://pgexercises.com/" target="_blank"><i class="fas fa-table"></i> PostgreSQL Exercises</a></li>
+                        <li><a href="https://www.w3resource.com/sql-exercises/" target="_blank"><i class="fas fa-database"></i> W3Resource SQL</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Data Science -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="practice-title">Data Science</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://www.datacamp.com/projects" target="_blank"><i class="fas fa-project-diagram"></i> DataCamp Projects</a></li>
+                        <li><a href="https://www.kaggle.com/datasets" target="_blank"><i class="fas fa-database"></i> Kaggle Datasets</a></li>
+                        <li><a href="https://archive.ics.uci.edu/ml/index.php" target="_blank"><i class="fas fa-archive"></i> UCI ML Repository</a></li>
+                        <li><a href="https://www.kdnuggets.com/" target="_blank"><i class="fas fa-newspaper"></i> KDnuggets</a></li>
+                        <li><a href="https://www.data.gov/" target="_blank"><i class="fas fa-globe"></i> US Government Data</a></li>
+                    </ul>
+                </div>
+                
+                <!-- System Design -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="practice-title">System Design</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://github.com/donnemartin/system-design-primer" target="_blank"><i class="fab fa-github"></i> System Design Primer</a></li>
+                        <li><a href="https://www.educative.io/courses/grokking-the-system-design-interview" target="_blank"><i class="fas fa-book"></i> Grokking System Design</a></li>
+                        <li><a href="https://leetcode.com/discuss/interview-question/system-design/" target="_blank"><i class="fas fa-laptop"></i> LeetCode System Design</a></li>
+                        <li><a href="https://www.hiredintech.com/classrooms/system-design" target="_blank"><i class="fas fa-chalkboard"></i> HiredInTech</a></li>
+                        <li><a href="https://www.youtube.com/c/GauravSenSystemDesign" target="_blank"><i class="fab fa-youtube"></i> Gaurav Sen</a></li>
+                    </ul>
+                </div>
+                
+                <!-- DevOps -->
+                <div class="practice-card">
+                    <div class="practice-header">
+                        <div class="practice-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="practice-title">DevOps</div>
+                    </div>
+                    <ul class="practice-list">
+                        <li><a href="https://kodekloud.com/" target="_blank"><i class="fas fa-terminal"></i> KodeKloud</a></li>
+                        <li><a href="https://www.katacoda.com/" target="_blank"><i class="fas fa-laptop-code"></i> Katacoda</a></li>
+                        <li><a href="https://labs.play-with-docker.com/" target="_blank"><i class="fab fa-docker"></i> Play with Docker</a></li>
+                        <li><a href="https://www.terraform.io/" target="_blank"><i class="fas fa-code"></i> Terraform</a></li>
+                        <li><a href="https://kubernetes.io/docs/tutorials/" target="_blank"><i class="fas fa-cube"></i> Kubernetes Tutorials</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- IQ Test Section -->
+        <section class="iq-section">
+            <h2 class="section-title" style="color: white; border-color: #ffd166;">Cognitive Ability Testing</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
+                Challenge your problem-solving skills and cognitive abilities
+            </p>
+            
+            <div class="iq-container">
+                <div class="iq-info">
+                    <h3 class="iq-title">What is IQ Testing?</h3>
+                    <p class="iq-desc">
+                        IQ (Intelligence Quotient) tests measure a range of cognitive abilities and provide a score that is intended to serve as a measure of an individual's intellectual abilities and potential.
+                    </p>
+                    <p class="iq-desc">
+                        While not a complete measure of intelligence, IQ tests can be valuable tools for understanding cognitive strengths and areas for improvement.
+                    </p>
+                    
+                    <div class="iq-resources">
+                        <h3>Recommended IQ Test Resources:</h3>
+                        <ul class="practice-list">
+                            <li><a href="https://www.mensa.org/" target="_blank"><i class="fas fa-brain"></i> Mensa International</a></li>
+                            <li><a href="https://www.iqtest.com/" target="_blank"><i class="fas fa-calculator"></i> Official IQ Test</a></li>
+                            <li><a href="https://www.123test.com/iq-test/" target="_blank"><i class="fas fa-puzzle-piece"></i> 123Test</a></li>
+                            <li><a href="https://www.free-iqtest.net/" target="_blank"><i class="fas fa-check-circle"></i> Free-IQTest</a></li>
+                            <li><a href="https://www.psychologytoday.com/intl/tests/iq/culture-fair-iq-test" target="_blank"><i class="fas fa-globe"></i> Culture Fair IQ Test</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="iq-test">
+                    <div class="iq-test-content">
+                        <h3 class="iq-title">Quick IQ Assessment</h3>
+                        <p class="iq-desc">Try this sample question to test your logical reasoning:</p>
+                        
+                        <div class="iq-question">
+                            <p>If all Bloops are Razzies and some Razzies are Tubbies, then which of the following must be true?</p>
+                        </div>
+                        
+                        <div class="iq-options">
+                            <div class="iq-option" data-correct="false">A. All Tubbies are Bloops</div>
+                            <div class="iq-option" data-correct="false">B. Some Bloops are Tubbies</div>
+                            <div class="iq-option" data-correct="false">C. No Tubbies are Bloops</div>
+                            <div class="iq-option" data-correct="true">D. None of the above</div>
+                        </div>
+                        
+                        <button class="iq-btn" id="check-answer">Check Answer</button>
+                        
+                        <div class="iq-result" id="iq-result">
+                            <div class="iq-score">Correct!</div>
+                            <p>The correct answer is D. None of the above. The statements don't provide enough information to support any of the other conclusions.</p>
+                            <button class="iq-btn" id="next-question">Next Question</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Learning Paths</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Python Development</a></li>
+                    <li><a href="#">Data Science</a></li>
+                    <li><a href="#">Machine Learning</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">DevOps</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Practice Areas</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Coding Challenges</a></li>
+                    <li><a href="#">Algorithm Practice</a></li>
+                    <li><a href="#">Math Problems</a></li>
+                    <li><a href="#">System Design</a></li>
+                    <li><a href="#">IQ Tests</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Cheat Sheets</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Community</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Forums</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Mentorship</a></li>
+                    <li><a href="#">Contribute</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2023 Intensive Learning Platform. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        // IQ Test functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.iq-option');
+            const checkBtn = document.getElementById('check-answer');
+            const resultDiv = document.getElementById('iq-result');
+            const nextBtn = document.getElementById('next-question');
+            
+            let selectedOption = null;
+            
+            // Add event listeners to options
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    selectedOption = this;
+                });
+            });
+            
+            // Check answer button
+            checkBtn.addEventListener('click', function() {
+                if (!selectedOption) {
+                    alert('Please select an answer!');
+                    return;
+                }
+                
+                // Show result
+                resultDiv.style.display = 'block';
+                
+                // Scroll to result
+                resultDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Next question button
+            nextBtn.addEventListener('click', function() {
+                // Reset UI
+                options.forEach(opt => opt.classList.remove('selected'));
+                resultDiv.style.display = 'none';
+                selectedOption = null;
+                
+                // For demo purposes, we'll just reload the question
+                alert('Fetching next question...');
+            });
+        });
+    </script>
+</body>
+</html>
