@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Fira+Code:wght@400;700&display=swap');
+    html {
+        /* Smooth font rendering */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+   
+   
+   
+   
+   
+   
+   
+    /* body {
+        font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #232946;
+        background: linear-gradient(135deg, #f8fafc 0%, #e3e6f3 100%);
+        letter-spacing: 0.01em;
+        transition: background 0.6s cubic-bezier(0.4,0,0.2,1), color 0.4s cubic-bezier(0.4,0,0.2,1);
+        scroll-behavior: smooth;
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+    } */
+/* 
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .month-box, .resource-card {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .month-box.visible, .resource-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding: 20px;
+    }
+
+
+
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        body {
+            animation: none;
+        }
+    } */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #1a2a6c;
+        letter-spacing: 0.03em;
+    }
+    code, pre, .task-list li, .resource-list li {
+        font-family: 'Fira Code', 'Consolas', 'Menlo', monospace;
+        background: #f3e7e9;
+        color: #b21f1f;
+        border-radius: 4px;
+        padding: 2px 6px;
+        font-size: 1em;
+    }
+    .month-title, .resource-title {
+        font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #b21f1f;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-shadow: 1px 1px 6px #e3e6f3;
+    }
+    .subtitle, .legend-text {
+        color: #b21f1f;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+    .highlight {
+        color: #ff7f50;
+        background: linear-gradient(90deg, #fbeee6 60%, #f3e7e9 100%);
+        border-radius: 6px;
+        padding: 2px 8px;
+        font-weight: 700;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .month-number {
+        background: linear-gradient(135deg, #b21f1f 60%, #1a2a6c 100%);
+        color: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0 2px 8px #b21f1f33;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .core-task {
+        color: #232946;
+        font-weight: 500;
+    }
+    .iit-task {
+        color: #1a2a6c;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .deliverable {
+        background: linear-gradient(90deg, #1a2a6c 60%, #b21f1f 100%);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        letter-spacing: 0.02em;
+        border: none;
+        box-shadow: 0 2px 8px #1a2a6c22;
+    }
+    .legend-color.core-color {
+        background: #232946;
+    }
+    .legend-color.iit-color {
+        background: #b21f1f;
+    }
+    .resource-icon {
+        background: linear-gradient(135deg, #fbeee6 60%, #f3e7e9 100%);
+        color: #b21f1f;
+        border: 2px solid #b21f1f22;
+    }
+    .resource-card {
+        border-left: 7px solid #1a2a6c;
+        background: linear-gradient(120deg, #fff 80%, #e3e6f3 100%);
+        color: #232946;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .resource-list a {
+        color: #b21f1f;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+    }
+    .resource-list a:hover {
+        color: #1a2a6c;
+        text-decoration: underline;
+    }
+    .tip-box {
+        background: linear-gradient(90deg, #fbeee6 70%, #f3e7e9 100%);
+        color: #1a2a6c;
+        font-family: 'Montserrat', sans-serif;
+        border-left: 6px solid #b21f1f;
+    }
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT-Level Machine Learning Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #1a2a6c;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            color: #b21f1f;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #444;
+        }
+
+        .highlight {
+            color: #b21f1f;
+            font-weight: bold;
+        }
+
+        /* Modified Timeline Styles */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .month-box {
+            width: 100%;
+            background: linear-gradient(100deg, #f8fafc 80%, #e3e6f3 100%);
+            border-radius: 18px;
+            padding: 32px 28px 28px 28px;
+            box-shadow: 0 8px 32px rgba(26,42,108,0.13), 0 2px 4px rgba(178,31,31,0.07);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+            border-left: 8px solid #b21f1f;
+        }
+
+        .month-box:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 16px 40px rgba(26,42,108,0.18);
+            border-left: 8px solid #1a2a6c;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .month-number {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-right: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(178,31,31,0.08);
+        }
+
+        .month-title {
+            font-size: 1.5rem;
+            color: #1a2a6c;
+            font-weight: bold;
+        }
+
+        .task-container {
+            padding-left: 8px;
+        }
+
+        .task-title {
+            font-size: 1.2rem;
+            color: #b21f1f;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .task-list {
+            list-style-type: none;
+        }
+
+        .task-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+            font-size: 1.05rem;
+        }
+
+        .task-list li:last-child {
+            border-bottom: none;
+        }
+
+        .task-list li::before {
+            content: '•';
+            color: #b21f1f;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 10px;
+            line-height: 1.2;
+        }
+
+        .core-task {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .iit-task {
+            color: #1a2a6c;
+            font-weight: bold;
+        }
+
+        .deliverable {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 13px 18px;
+            border-radius: 10px;
+            margin-top: 18px;
+            font-weight: bold;
+            font-size: 1.08rem;
+            box-shadow: 0 2px 8px rgba(26,42,108,0.09);
+        }
+
+        .deliverable::before {
+            content: '🚀 Deliverable: ';
+            font-weight: bold;
+        }
+
+        .legend {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+        .legend h2 {
+            color: #1a2a6c;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .legend-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .core-color {
+            background: #333;
+        }
+
+        .iit-color {
+            background: #1a2a6c;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .container {
+                max-width: 98vw;
+            }
+            .month-box {
+                padding: 18px 8px 16px 8px;
+            }
+            .month-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+            .month-number {
+                margin-bottom: 6px;
+                margin-right: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 2vw;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .month-title {
+                font-size: 1.1rem;
+            }
+            .month-number {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .month-box {
+                padding: 10px 2vw 10px 2vw;
+            }
+            .task-title {
+                font-size: 1rem;
+            }
+            .deliverable {
+                font-size: 0.95rem;
+                padding: 9px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IIT-LEVEL MACHINE LEARNING ROADMAP</h1>
+            <div class="subtitle">24-Month Comprehensive Training Program</div>
+            <div class="intro">
+                <p>This roadmap combines fundamental ML concepts with <span class="highlight">IIT-level enhancements</span> to create an intensive learning experience. Each month includes core tasks supplemented with advanced challenges that reflect the rigor of India's premier technical institutes.</p>
+                <p>Follow this program diligently to develop world-class machine learning expertise.</p>
+            </div>
+        </header>
+
+        <div class="timeline">
+            <!-- Month 1 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">1</div>
+                    <div class="month-title">Python Fundamentals</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Install Python 3.8+ & choose IDE (VSCode/PyCharm)</li>
+                        <li class="core-task">Learn basic syntax: variables, data types, type casting</li>
+                        <li class="core-task">Practice I/O operations: input() & print()</li>
+                        <li class="core-task">Master arithmetic & comparison operators</li>
+                        <li class="core-task">Write scripts using if-else statements</li>
+                        <li class="core-task">Complete 5 "Hello World" practice problems</li>
+                        <li class="core-task">Set up GitHub account and push Month 1 code</li>
+                        <li class="iit-task">Solve ODEs for rocket trajectories</li>
+                        <li class="iit-task">Profile memory usage of large matrices</li>
+                        <li class="iit-task">Implement Euler numerical integrator</li>
+                        <li class="iit-task">Submit CodeForces Div2 solutions (5+)</li>
+                    </ul>
+                    <div class="deliverable">GitHub repo with physics simulators and complexity analysis report</div>
+                </div>
+            </div>
+            <!-- Month 2 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">2</div>
+                    <div class="month-title">Control Flow & Functions</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Deep dive into for & while loops</li>
+                        <li class="core-task">Learn and practice break, continue, pass</li>
+                        <li class="core-task">Define functions with positional & keyword arguments</li>
+                        <li class="core-task">Use *args and **kwargs in functions</li>
+                        <li class="core-task">Handle exceptions with try/except blocks</li>
+                        <li class="core-task">Build a small CLI calculator script</li>
+                        <li class="core-task">Push all code to GitHub with proper README</li>
+                        <li class="iit-task">Build MPI-parallelized prime number sieve</li>
+                        <li class="iit-task">Implement Grover's quantum search algorithm</li>
+                        <li class="iit-task">Optimize matrix exponentiation using divide-and-conquer</li>
+                    </ul>
+                    <div class="deliverable">Quantum algorithm visualizer & parallelized fractal generator</div>
+                </div>
+            </div>
+            <!-- Month 3 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">3</div>
+                    <div class="month-title">Data Structures</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Study built-in data structures: list, tuple, set, dict</li>
+                        <li class="core-task">Practice list & dict comprehensions</li>
+                        <li class="core-task">Implement stack and queue using lists</li>
+                        <li class="core-task">Use slicing and indexing on strings & lists</li>
+                        <li class="core-task">Create mini-projects: contact book (dict) & to-do list (list)</li>
+                        <li class="core-task">Write tests using assert for each data structure</li>
+                        <li class="core-task">Update GitHub portfolio with Month 3 samples</li>
+                        <li class="iit-task">Crack RSA keys with Pollard's rho algorithm</li>
+                        <li class="iit-task">Design cache-oblivious matrices</li>
+                        <li class="iit-task">Simulate disk I/O for B-trees</li>
+                    </ul>
+                    <div class="deliverable">Blockchain verifier using Merkle trees & cryptographic toolkit</div>
+                </div>
+            </div>
+            <!-- Month 4 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">4</div>
+                    <div class="month-title">Development Environment</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Install & use virtual environments (venv)</li>
+                        <li class="core-task">Manage packages with pip & generate requirements.txt</li>
+                        <li class="core-task">Learn basic Git: clone, commit, push, branch</li>
+                        <li class="core-task">Fork a simple open-source repo and submit a PR</li>
+                        <li class="core-task">Create project folders with proper structure</li>
+                        <li class="core-task">Document environment & setup steps in README</li>
+                        <li class="core-task">Push Month 4 projects to GitHub</li>
+                        <li class="iit-task">Write Linux kernel modules</li>
+                        <li class="iit-task">Patch Python C-API</li>
+                        <li class="iit-task">Build RPM/Deb packages</li>
+                        <li class="iit-task">Contribute to LLVM compiler</li>
+                    </ul>
+                    <div class="deliverable">Merged PR in CPython & Debian/RPM packages</div>
+                </div>
+            </div>
+            <!-- Month 5 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">5</div>
+                    <div class="month-title">NumPy & Scientific Computing</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn NumPy arrays: creation, indexing, slicing</li>
+                        <li class="core-task">Perform vectorized operations & broadcasting</li>
+                        <li class="core-task">Use universal functions (ufuncs) & aggregations</li>
+                        <li class="core-task">Solve 5 array-based coding challenges</li>
+                        <li class="core-task">Visualize array data distributions</li>
+                        <li class="core-task">Compare performance of list vs NumPy operations</li>
+                        <li class="core-task">Add Month 5 notebook to GitHub</li>
+                        <li class="iit-task">Solve Navier-Stokes equations</li>
+                        <li class="iit-task">Simulate Rayleigh-Bénard convection</li>
+                        <li class="iit-task">GPU-accelerate with CuPy</li>
+                        <li class="iit-task">Implement multigrid solvers</li>
+                        <li class="iit-task">Bind C++ code with PyBind11</li>
+                    </ul>
+                    <div class="deliverable">Fluid dynamics simulator with GPU acceleration</div>
+                </div>
+            </div>
+            <!-- Month 6 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">6</div>
+                    <div class="month-title">Pandas & Data Analysis</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn Pandas Series & DataFrame basics</li>
+                        <li class="core-task">Import/export CSV, JSON using Pandas</li>
+                        <li class="core-task">Data selection, filtering & groupby operations</li>
+                        <li class="core-task">Handle missing values and duplicates</li>
+                        <li class="core-task">Create summary reports (describe, value_counts)</li>
+                        <li class="core-task">Publish Month 6 data-analysis notebook</li>
+                        <li class="core-task">Share a Pandas mini-project on GitHub</li>
+                        <li class="iit-task">Backtest high-frequency trading strategies</li>
+                        <li class="iit-task">Reconstruct limit order books</li>
+                        <li class="iit-task">Build FPGA-accelerated data pipelines</li>
+                        <li class="iit-task">Quantify market micro-structure</li>
+                    </ul>
+                    <div class="deliverable">Trading bot (Sharpe ratio > 2.0) with FPGA acceleration</div>
+                </div>
+            </div>
+            <!-- Month 7 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">7</div>
+                    <div class="month-title">Data Visualization</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Introduction to Matplotlib: basic plots</li>
+                        <li class="core-task">Create line, bar, pie & scatter charts</li>
+                        <li class="core-task">Customize axes, titles & legends</li>
+                        <li class="core-task">Save figures in PNG & PDF formats</li>
+                        <li class="core-task">Build a dashboard of 3 visualizations</li>
+                        <li class="core-task">Document visualization best practices</li>
+                        <li class="core-task">Push Month 7 charts & code to GitHub</li>
+                        <li class="iit-task">Compute persistent homology for data analysis</li>
+                        <li class="iit-task">Render 4D data with VR integration</li>
+                        <li class="iit-task">Animate Ricci flow on manifolds</li>
+                        <li class="iit-task">Generate Morse-Smale complexes</li>
+                    </ul>
+                    <div class="deliverable">Medical image segmentation using TDA & research paper</div>
+                </div>
+            </div>
+            <!-- Month 8 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">8</div>
+                    <div class="month-title">Statistics & Probability</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn descriptive statistics: mean, median, mode</li>
+                        <li class="core-task">Calculate variance & standard deviation</li>
+                        <li class="core-task">Understand distributions: normal, binomial</li>
+                        <li class="core-task">Implement probability basics and Bayes' theorem</li>
+                        <li class="core-task">Solve 5 statistics practice problems</li>
+                        <li class="core-task">Apply stats on real dataset and summarize</li>
+                        <li class="core-task">Publish Month 8 report on GitHub</li>
+                        <li class="iit-task">Simulate Heston model for options pricing</li>
+                        <li class="iit-task">Build Kalman filter for missile tracking</li>
+                        <li class="iit-task">Solve Fokker-Planck equations</li>
+                        <li class="iit-task">Implement measure-theoretic probability</li>
+                    </ul>
+                    <div class="deliverable">Quantitative finance models & missile tracking simulation</div>
+                </div>
+            </div>
+            <!-- Month 9 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">9</div>
+                    <div class="month-title">Linear Algebra</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Study vectors & matrices basics</li>
+                        <li class="core-task">Perform matrix multiplication & inversion</li>
+                        <li class="core-task">Learn eigenvalues and eigenvectors</li>
+                        <li class="core-task">Apply SVD for dimensionality reduction</li>
+                        <li class="core-task">Build a notebook demonstrating operations</li>
+                        <li class="core-task">Share Month 9 linear algebra notebook</li>
+                        <li class="core-task">Write README explaining math concepts</li>
+                        <li class="iit-task">Implement HHL quantum algorithm</li>
+                        <li class="iit-task">Train photonic quantum GANs</li>
+                        <li class="iit-task">Solve MAXCUT with QAOA</li>
+                        <li class="iit-task">Factorize matrices via annealing</li>
+                    </ul>
+                    <div class="deliverable">Quantum ML benchmarks & photonic hardware report</div>
+                </div>
+            </div>
+            <!-- Month 10 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">10</div>
+                    <div class="month-title">Calculus & Optimization</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn derivatives & gradients</li>
+                        <li class="core-task">Implement numerical derivative in Python</li>
+                        <li class="core-task">Understand gradient descent & its variants</li>
+                        <li class="core-task">Visualize loss vs iteration graph</li>
+                        <li class="core-task">Code a simple linear regressor with GD</li>
+                        <li class="core-task">Document convergence behavior</li>
+                        <li class="core-task">Push Month 10 project to GitHub</li>
+                        <li class="iit-task">Simulate black hole mergers</li>
+                        <li class="iit-task">Compute Christoffel symbols</li>
+                        <li class="iit-task">Differentiate spacetime metrics</li>
+                        <li class="iit-task">Build neural PDE solvers</li>
+                    </ul>
+                    <div class="deliverable">Gravitational wave predictor & relativity simulator</div>
+                </div>
+            </div>
+            <!-- Month 11 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">11</div>
+                    <div class="month-title">Scikit-learn & ML Models</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Install & explore scikit-learn</li>
+                        <li class="core-task">Use train_test_split & metrics</li>
+                        <li class="core-task">Build & evaluate Linear Regression model</li>
+                        <li class="core-task">Build & evaluate Logistic Regression model</li>
+                        <li class="core-task">Experiment with different metrics (MSE, accuracy)</li>
+                        <li class="core-task">Write a comparative analysis notebook</li>
+                        <li class="core-task">Publish Month 11 models on GitHub</li>
+                        <li class="iit-task">Derive PAC-learning bounds</li>
+                        <li class="iit-task">Implement natural gradient descent</li>
+                        <li class="iit-task">Solve optimal transport problems</li>
+                    </ul>
+                    <div class="deliverable">Geometric ML library with GPU acceleration</div>
+                </div>
+            </div>
+            <!-- Month 12 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">12</div>
+                    <div class="month-title">Tree Models & Ensembles</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Implement Decision Tree & Random Forest</li>
+                        <li class="core-task">Analyze feature importance</li>
+                        <li class="core-task">Visualize trees with plot_tree</li>
+                        <li class="core-task">Try ensemble methods: Bagging & Boosting</li>
+                        <li class="core-task">Compare performance across models</li>
+                        <li class="core-task">Document strengths & weaknesses</li>
+                        <li class="core-task">Push Month 12 ensemble notebook</li>
+                        <li class="iit-task">Build AlphaZero for chess</li>
+                        <li class="iit-task">Prove Nash equilibrium convergence</li>
+                        <li class="iit-task">Implement MCTS with neural guidance</li>
+                    </ul>
+                    <div class="deliverable">Game AI (2200+ ELO) defeating Stockfish</div>
+                </div>
+            </div>
+            <!-- Month 13 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">13</div>
+                    <div class="month-title">Clustering & Dimensionality</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn K-Means clustering algorithm</li>
+                        <li class="core-task">Apply PCA for dimensionality reduction</li>
+                        <li class="core-task">Implement DBSCAN clustering</li>
+                        <li class="core-task">Visualize clusters in 2D/3D</li>
+                        <li class="core-task">Evaluate with silhouette score</li>
+                        <li class="core-task">Write clustering case study notebook</li>
+                        <li class="core-task">Publish Month 13 project on GitHub</li>
+                        <li class="iit-task">Cluster SDSS galaxy survey data</li>
+                        <li class="iit-task">Detect exoplanets with GNNs</li>
+                        <li class="iit-task">Implement cosmological N-body simulations</li>
+                    </ul>
+                    <div class="deliverable">Astrophysical ML pipeline published in AAS journals</div>
+                </div>
+            </div>
+            <!-- Month 14 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">14</div>
+                    <div class="month-title">Regularization</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Study overfitting & regularization</li>
+                        <li class="core-task">Use L1/L2 penalties in models</li>
+                        <li class="core-task">Implement Ridge & Lasso regression</li>
+                        <li class="core-task">Visualize effect of α parameter</li>
+                        <li class="core-task">Document trade-off between bias & variance</li>
+                        <li class="core-task">Push Month 14 regularization notebook</li>
+                        <li class="core-task">Create README summarizing findings</li>
+                        <li class="iit-task">Build MRI reconstructors</li>
+                        <li class="iit-task">Prove RIP matrix conditions</li>
+                        <li class="iit-task">Implement L0 proximal operators</li>
+                    </ul>
+                    <div class="deliverable">Sub-Nyquist imaging toolkit & medical paper</div>
+                </div>
+            </div>
+            <!-- Month 15 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">15</div>
+                    <div class="month-title">Hyperparameter Tuning</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn cross-validation techniques</li>
+                        <li class="core-task">Use GridSearchCV for hyperparameter tuning</li>
+                        <li class="core-task">Implement RandomizedSearchCV</li>
+                        <li class="core-task">Compare tuned vs default models</li>
+                        <li class="core-task">Document best parameter sets</li>
+                        <li class="core-task">Publish Month 15 tuning notebook</li>
+                        <li class="core-task">Update portfolio with tuned models</li>
+                        <li class="iit-task">Optimize rocket engine designs</li>
+                        <li class="iit-task">Build Hyperband scheduler</li>
+                        <li class="iit-task">Derive acquisition functions (EI, UCB)</li>
+                    </ul>
+                    <div class="deliverable">AutoML system for scientific computing</div>
+                </div>
+            </div>
+            <!-- Month 16 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">16</div>
+                    <div class="month-title">ML Pipelines</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Build pipelines using Pipeline and transformers</li>
+                        <li class="core-task">Create custom transformer classes</li>
+                        <li class="core-task">Integrate preprocessing & modeling</li>
+                        <li class="core-task">Save & load pipelines with joblib</li>
+                        <li class="core-task">Write unit tests for pipeline steps</li>
+                        <li class="core-task">Push Month 16 pipeline project</li>
+                        <li class="core-task">Document use cases in README</li>
+                        <li class="iit-task">Predict protein folding with ESM-2</li>
+                        <li class="iit-task">Generate novel enzymes with GANs</li>
+                        <li class="iit-task">Build DNA data storage encoders</li>
+                    </ul>
+                    <div class="deliverable">CRISPR guide designer & BioML research paper</div>
+                </div>
+            </div>
+            <!-- Month 17 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">17</div>
+                    <div class="month-title">Neural Networks</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Introduction to neural networks & perceptron</li>
+                        <li class="core-task">Install TensorFlow & Keras</li>
+                        <li class="core-task">Build a simple dense NN in Keras</li>
+                        <li class="core-task">Train on MNIST or CIFAR-10 dataset</li>
+                        <li class="core-task">Plot training vs validation curves</li>
+                        <li class="core-task">Tune learning rate & epochs</li>
+                        <li class="core-task">Publish Month 17 deep-learning notebook</li>
+                        <li class="iit-task">Simulate Hodgkin-Huxley neurons</li>
+                        <li class="iit-task">Reverse-engineer visual cortex</li>
+                        <li class="iit-task">Code Verilog for neuromorphic hardware</li>
+                    </ul>
+                    <div class="deliverable">Neuromorphic chip design & SNN edge framework</div>
+                </div>
+            </div>
+            <!-- Month 18 -->
+
+            
+            <div class="month-box">
+                <div class="month-header"></div>
+                    <div class="month-number">18</div>
+                    <div class="month-title">Convolutional Neural Networks</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn convolution & pooling layers</li>
+                        <li class="core-task">Build a simple CNN model</li>
+                        <li class="core-task">Apply data augmentation</li>
+                        <li class="core-task">Fine-tune a pretrained model (Transfer Learning)</li>
+                        <li class="core-task">Evaluate with confusion matrix</li>
+                        <li class="core-task">Document model architecture</li>
+                        <li class="core-task">Push Month 18 CNN project</li>
+                        <li class="iit-task">Track illegal fishing with SAR</li>
+                        <li class="iit-task">Predict famines with climate data</li>
+                        <li class="iit-task">Detect crop diseases from Sentinel-2</li>
+                    </ul>
+                    <div class="deliverable">GeoAI satellite system on AWS Ground Station</div>
+                </div>
+            </div>
+            <!-- Month 19 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">19</div>
+                    <div class="month-title">Natural Language Processing</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn text preprocessing (tokenization, stopwords)</li>
+                        <li class="core-task">Convert text to vectors (BOW, TF-IDF)</li>
+                        <li class="core-task">Build a simple text classifier in scikit-learn</li>
+                        <li class="core-task">Explore embeddings (Word2Vec/GloVe)</li>
+                        <li class="core-task">Train an LSTM on a small corpus</li>
+                        <li class="core-task">Document NLP pipeline</li>
+                        <li class="core-task">Publish Month 19 NLP project</li>
+                        <li class="iit-task">Build Vedic Sanskrit parser</li>
+                        <li class="iit-task">Reconstruct Proto-Indo-European roots</li>
+                        <li class="iit-task">Implement attention-free models (S4)</li>
+                    </ul>
+                    <div class="deliverable">Indus Valley script decoder & AI-Pāṇini engine</div>
+                </div>
+            </div>
+            <!-- Month 20 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">20</div>
+                    <div class="month-title">Transformers & Attention</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Study RNN, LSTM & GRU architectures</li>
+                        <li class="core-task">Implement a sequence model in Keras</li>
+                        <li class="core-task">Learn Transformer basics and attention</li>
+                        <li class="core-task">Use HuggingFace Transformers for text tasks</li>
+                        <li class="core-task">Fine-tune a pretrained transformer model</li>
+                        <li class="core-task">Evaluate with BLEU or ROUGE scores</li>
+                        <li class="core-task">Push Month 20 transformer notebook</li>
+                        <li class="iit-task">Solve IMO problems with Lean</li>
+                        <li class="iit-task">Build neuro-symbolic integrators</li>
+                        <li class="iit-task">Generate mathematical conjectures</li>
+                    </ul>
+                    <div class="deliverable">Automated theorem prover for Olympiad geometry</div>
+                </div>
+            </div>
+            <!-- Month 21 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">21</div>
+                    <div class="month-title">Model Deployment</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Build a Flask or FastAPI service for your model</li>
+                        <li class="core-task">Write API endpoints for inference</li>
+                        <li class="core-task">Containerize with Docker</li>
+                        <li class="core-task">Write a simple CI/CD script (GitHub Actions)</li>
+                        <li class="core-task">Test endpoints using Postman</li>
+                        <li class="core-task">Document deployment steps</li>
+                        <li class="core-task">Push Month 21 deployment repo</li>
+                        <li class="iit-task">Deploy on radiation-hardened Raspberry Pi</li>
+                        <li class="iit-task">Implement fault tolerance (RAFT)</li>
+                        <li class="iit-task">Design energy-optimal schedulers</li>
+                    </ul>
+                    <div class="deliverable">Satellite-borne ML system with space survival report</div>
+                </div>
+            </div>
+            <!-- Month 22 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">22</div>
+                    <div class="month-title">Cloud Deployment</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Choose a cloud provider (AWS/GCP/Azure)</li>
+                        <li class="core-task">Set up a VM or Docker service in cloud</li>
+                        <li class="core-task">Deploy model on cloud endpoint (SageMaker, AI Platform)</li>
+                        <li class="core-task">Configure autoscaling & load balancing</li>
+                        <li class="core-task">Store data on S3/Cloud Storage</li>
+                        <li class="core-task">Monitor usage & logs</li>
+                        <li class="core-task">Publish Month 22 cloud deployment guide</li>
+                        <li class="iit-task">Train 100B+ models on AWS ParallelCluster</li>
+                        <li class="iit-task">Orchestrate with Argo workflows</li>
+                        <li class="iit-task">Build serverless ML on Lambda</li>
+                    </ul>
+                    <div class="deliverable">Global flood prediction & disaster response system</div>
+                </div>
+            </div>
+            <!-- Month 23 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">23</div>
+                    <div class="month-title">MLOps</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Learn MLOps concepts & tooling (MLflow, Kubeflow)</li>
+                        <li class="core-task">Implement model versioning with MLflow</li>
+                        <li class="core-task">Set up automated training pipeline</li>
+                        <li class="core-task">Monitor model performance in production</li>
+                        <li class="core-task">Log metrics & alerts</li>
+                        <li class="core-task">Document the MLOps workflow</li>
+                        <li class="core-task">Push Month 23 MLOps repo</li>
+                        <li class="iit-task">Monitor nuclear reactor safety with ML</li>
+                        <li class="iit-task">Certify models with formal methods</li>
+                        <li class="iit-task">Build adversarial robustness testbeds</li>
+                    </ul>
+                    <div class="deliverable">Smart grid controller with UL 4600 compliance</div>
+                </div>
+            </div>
+            <!-- Month 24 -->
+            <div class="month-box">
+                <div class="month-header">
+                    <div class="month-number">24</div>
+                    <div class="month-title">Capstone Project</div>
+                </div>
+                <div class="task-container">
+                    <div class="task-title">Task in this month</div>
+                    <ul class="task-list">
+                        <li class="core-task">Plan & start an end-to-end capstone project</li>
+                        <li class="core-task">Collect & preprocess real-world dataset</li>
+                        <li class="core-task">Experiment with multiple models & tune</li>
+                        <li class="core-task">Deploy production-grade pipeline</li>
+                        <li class="core-task">Write a detailed project report/blog post</li>
+                        <li class="core-task">Present project demo (video/website)</li>
+                        <li class="core-task">Compile entire roadmap in portfolio</li>
+                        <li class="iit-task">Solve India-specific problem (e.g., monsoon prediction)</li>
+                        <li class="iit-task">File provisional patents</li>
+                        <li class="iit-task">Publish in Nature/Science journals</li>
+                        <li class="iit-task">Incubate startup via IIT Incubation Cell</li>
+                    </ul>
+                    <div class="deliverable">Production system deployed nationwide + investor pitch</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h2>Roadmap Legend</h2>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <div class="legend-color core-color"></div>
+                    <div class="legend-text">Core ML Tasks</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color iit-color"></div>
+                    <div class="legend-text">IIT-Level Enhancements</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+<!-- Resources Section -->
+<style>
+    .resources-section {
+        background: linear-gradient(120deg, #f8fafc 70%, #e3e6f3 100%);
+        border-radius: 18px;
+        box-shadow: 0 10px 32px rgba(26,42,108,0.13), 0 2px 4px rgba(178,31,31,0.07);
+        padding: 48px 32px 40px 32px;
+        margin: 60px auto 0 auto;
+        max-width: 1300px;
+        position: relative;
+        z-index: 1;
+    }
+    .resources-section .section-title {
+        font-size: 2.4rem;
+        color: #1a2a6c;
+        text-align: center;
+        margin-bottom: 18px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-shadow: 1px 2px 8px #e3e6f3;
+    }
+    .resources-section .intro {
+        font-size: 1.15rem;
+        color: #444;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 32px;
+        margin: 40px 0 32px 0;
+    }
+    .resource-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 6px 24px rgba(26,42,108,0.09);
+        padding: 28px 22px 22px 22px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        border-left: 7px solid #b21f1f;
+        position: relative;
+        min-height: 320px;
+    }
+    .resource-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 16px 40px rgba(26,42,108,0.18);
+        border-left: 7px solid #1a2a6c;
+    }
+    .resource-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+    .resource-icon {
+        font-size: 2.2rem;
+        color: #b21f1f;
+        background: #f3e7e9;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 16px;
+        box-shadow: 0 2px 8px rgba(178,31,31,0.08);
+    }
+    .resource-title {
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: #1a2a6c;
+        letter-spacing: 0.5px;
+    }
+    .resource-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .resource-list li {
+        margin-bottom: 13px;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+    }
+    .resource-list li:last-child {
+        margin-bottom: 0;
+    }
+    .resource-list a {
+        color: #b21f1f;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.18s;
+        display: flex;
+        align-items: center;
+    }
+    .resource-list a:hover {
+        color: #1a2a6c;
+        text-decoration: underline;
+    }
+    .resource-list i {
+        margin-right: 9px;
+        font-size: 1.1rem;
+        color: #1a2a6c;
+    }
+    .tip-box {
+        background: linear-gradient(90deg, #fbeee6 70%, #f3e7e9 100%);
+        border-left: 6px solid #b21f1f;
+        border-radius: 10px;
+        padding: 18px 22px;
+        margin: 28px 0 18px 0;
+        font-size: 1.08rem;
+        color: #1a2a6c;
+        box-shadow: 0 2px 8px rgba(178,31,31,0.07);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .tip-box i {
+        color: #b21f1f;
+        font-size: 1.3rem;
+        margin-right: 8px;
+    }
+    @media (max-width: 900px) {
+        .resources-section {
+            padding: 32px 10px 28px 10px;
+        }
+        .resource-grid {
+            gap: 18px;
+        }
+        .resource-card {
+            min-height: 0;
+            padding: 18px 10px 14px 10px;
+        }
+    }
+    @media (max-width: 600px) {
+        .resources-section {
+            padding: 18px 2vw 12px 2vw;
+        }
+        .resource-header .resource-title {
+            font-size: 1.1rem;
+        }
+        .resources-section .section-title {
+            font-size: 1.3rem;
+        }
+    }
+</style>
+
+<!-- Font Awesome CDN for icons (if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="resources-section">
+    <h2 class="section-title">Learning Resources & References</h2>
+    <p class="intro" style="text-align: center; margin-bottom: 30px;">
+        Comprehensive collection of resources organized by month and domain
+    </p>
+    
+    <div class="tip-box">
+        <i class="fas fa-lightbulb"></i> <strong>Pro Tip:</strong> Combine multiple resources for each topic - watch videos for conceptual understanding, read documentation for technical details, and practice with exercises.
+    </div>
+    
+    <div class="resource-grid">
+        <!-- Python Resources -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="resource-title">Python Resources</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fas fa-book"></i> Python Documentation</a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i> Corey Schafer - Python Tutorials</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> Real Python Tutorials</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> Fluent Python Book</a></li>
+                <li><a href="#"><i class="fas fa-code"></i> LeetCode Python Challenges</a></li>
+            </ul>
+        </div>
+        
+        <!-- Mathematics Resources -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="resource-title">Mathematics</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fas fa-book"></i> Linear Algebra - Gilbert Strang</a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i> 3Blue1Brown - Essence of Calculus</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> Khan Academy - Statistics</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> Mathematics for ML Book</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i> MIT OpenCourseWare</a></li>
+            </ul>
+        </div>
+        
+        <!-- Machine Learning Resources -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="resource-title">Machine Learning</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fas fa-book"></i> Scikit-learn Documentation</a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i> Andrew Ng - Machine Learning Course</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> Kaggle Learn - ML Courses</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> Hands-on ML with Scikit-Learn</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i> TensorFlow Tutorials</a></li>
+            </ul>
+        </div>
+        
+        <!-- IIT-Specific Resources -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="resource-title">IIT-Level Resources</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fas fa-book"></i> NPTEL Advanced ML Courses</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> IIT Madras ML Lab</a></li>
+                <li><a href="#"><i class="fas fa-book-open"></i> Research Papers Repository</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i> Advanced ML Projects</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> IIT Tech Ambassadors Program</a></li>
+            </ul>
+        </div>
+        
+        <!-- Tools & Platforms -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="resource-title">Tools & Platforms</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fab fa-github"></i> GitHub - Code Hosting</a></li>
+                <li><a href="#"><i class="fas fa-cloud"></i> Google Colab - Cloud Notebooks</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Kaggle - Competitions & Datasets</a></li>
+                <li><a href="#"><i class="fas fa-server"></i> AWS Educate - Cloud Resources</a></li>
+                <li><a href="#"><i class="fas fa-code-branch"></i> Git - Version Control</a></li>
+            </ul>
+        </div>
+        
+        <!-- Community & Support -->
+        <div class="resource-card">
+            <div class="resource-header">
+                <div class="resource-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="resource-title">Community & Support</div>
+            </div>
+            <ul class="resource-list">
+                <li><a href="#"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
+                <li><a href="#"><i class="fab fa-reddit"></i> r/MachineLearning</a></li>
+                <li><a href="#"><i class="fab fa-discord"></i> ML Discord Communities</a></li>
+                <li><a href="#"><i class="fab fa-meetup"></i> Local ML Meetups</a></li>
+                <li><a href="#"><i class="fas fa-hands-helping"></i> IIT Mentorship Program</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="tip-box">
+        <i class="fas fa-clock"></i> <strong>Time Management Tip:</strong> Dedicate 2 hours daily to core learning, 1 hour to IIT-level challenges, and 1 hour to practical projects. Take one day off per week for review and reflection.
+    </div>
+</div>
