@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Resources | Python, ML & Math</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            color: #b21f1f;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            color: #444;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(to right, #1a2a6c, #4a6fc5);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+        
+        .tab {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tab.active {
+            background: white;
+            color: #b21f1f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .resources-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+        
+        .card-header {
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .python-header {
+            background: linear-gradient(to right, #306998, #4B8BBE);
+        }
+        
+        .ml-header {
+            background: linear-gradient(to right, #FF6B6B, #FF8E53);
+        }
+        
+        .math-header {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .resource-list {
+            list-style-type: none;
+        }
+        
+        .resource-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .resource-item:last-child {
+            border-bottom: none;
+        }
+        
+        .resource-link {
+            color: #1a2a6c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            display: block;
+            flex: 1;
+        }
+        
+        .resource-link:hover {
+            color: #b21f1f;
+            text-decoration: underline;
+        }
+        
+        .resource-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            background: #b21f1f;
+            color: white;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #1a2a6c;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+        
+        .motivation {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #b21f1f;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Master Python, ML & Mathematics</h1>
+            <div class="tagline">Premium Practice Resources for Serious Learners</div>
+            <p class="intro">Become a pro with these hand-picked, challenging resources. Each platform offers extensive problem sets and real-world challenges to take your skills to the next level.</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <i class="fas fa-laptop-code"></i> 30+ Resources
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-bolt"></i> 1000s of Problems
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-graduation-cap"></i> Zero Cost
+                </div>
+            </div>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" onclick="filterResources('all')">All Resources</div>
+            <div class="tab" onclick="filterResources('python')">Python Practice</div>
+            <div class="tab" onclick="filterResources('ml')">Machine Learning</div>
+            <div class="tab" onclick="filterResources('math')">Mathematics</div>
+        </div>
+        
+        <div class="resources-container">
+            <!-- Python Resources -->
+            <div class="resource-card" data-category="python">
+                <div class="card-header python-header">
+                    <div class="card-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="card-title">Python Practice</div>
+                </div>
+                <div class="card-content">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://leetcode.com/" target="_blank" class="resource-link">LeetCode
+                                <span class="badge">Pro</span>
+                            </a>
+                            <div class="resource-desc">Algorithm challenges with real interview questions</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.hackerrank.com/" target="_blank" class="resource-link">HackerRank</a>
+                            <div class="resource-desc">Domain-specific challenges and competitions</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.codewars.com/" target="_blank" class="resource-link">CodeWars</a>
+                            <div class="resource-desc">Martial arts-themed coding challenges</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://projecteuler.net/" target="_blank" class="resource-link">Project Euler
+                                <span class="badge">Hard</span>
+                            </a>
+                            <div class="resource-desc">Math-based programming problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://exercism.org/" target="_blank" class="resource-link">Exercism</a>
+                            <div class="resource-desc">Practice with mentorship and community feedback</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://adventofcode.com/" target="_blank" class="resource-link">Advent of Code</a>
+                            <div class="resource-desc">Annual coding challenges with storylines</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.topcoder.com/" target="_blank" class="resource-link">TopCoder</a>
+                            <div class="resource-desc">Competitive programming challenges</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.codechef.com/" target="_blank" class="resource-link">CodeChef</a>
+                            <div class="resource-desc">Monthly contests and practice problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://codingbat.com/python" target="_blank" class="resource-link">CodingBat</a>
+                            <div class="resource-desc">Beginner to intermediate practice problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.practicepython.org/" target="_blank" class="resource-link">Practice Python</a>
+                            <div class="resource-desc">Beginner exercises with solutions</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Machine Learning Resources -->
+            <div class="resource-card" data-category="ml">
+                <div class="card-header ml-header">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="card-title">Machine Learning</div>
+                </div>
+                <div class="card-content">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://www.kaggle.com/" target="_blank" class="resource-link">Kaggle
+                                <span class="badge">Must Do</span>
+                            </a>
+                            <div class="resource-desc">Datasets, competitions, and notebooks</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.drivendata.org/" target="_blank" class="resource-link">DrivenData</a>
+                            <div class="resource-desc">Social impact ML competitions</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank" class="resource-link">UCI ML Repository</a>
+                            <div class="resource-desc">Datasets for practice</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.aicrowd.com/" target="_blank" class="resource-link">AI Crowd</a>
+                            <div class="resource-desc">Open-source AI challenges</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://machinehack.com/" target="_blank" class="resource-link">MachineHack</a>
+                            <div class="resource-desc">Hackathons and practice platforms</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.kdnuggets.com/competitions" target="_blank" class="resource-link">KDnuggets Competitions</a>
+                            <div class="resource-desc">Curated list of ML competitions</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.crowdanalytix.com/community" target="_blank" class="resource-link">CrowdANALYTIX</a>
+                            <div class="resource-desc">Enterprise AI challenges</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.analyticsvidhya.com/hackathons/" target="_blank" class="resource-link">Analytics Vidhya</a>
+                            <div class="resource-desc">Hackathons and practice problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.signate.jp/competitions" target="_blank" class="resource-link">Signate</a>
+                            <div class="resource-desc">Japanese ML competitions</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://zindi.africa/" target="_blank" class="resource-link">Zindi</a>
+                            <div class="resource-desc">African AI challenges and datasets</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mathematics Resources -->
+            <div class="resource-card" data-category="math">
+                <div class="card-header math-header">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="card-title">Mathematics</div>
+                </div>
+                <div class="card-content">
+                    <ul class="resource-list">
+                        <li class="resource-item">
+                            <a href="https://projecteuler.net/" target="_blank" class="resource-link">Project Euler
+                                <span class="badge">Pro</span>
+                            </a>
+                            <div class="resource-desc">Computational math problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.khanacademy.org/" target="_blank" class="resource-link">Khan Academy</a>
+                            <div class="resource-desc">Comprehensive math courses with practice</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://brilliant.org/" target="_blank" class="resource-link">Brilliant</a>
+                            <div class="resource-desc">Problem-solving courses</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://artofproblemsolving.com/" target="_blank" class="resource-link">Art of Problem Solving</a>
+                            <div class="resource-desc">Advanced math resources</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.wolframalpha.com/" target="_blank" class="resource-link">Wolfram Alpha</a>
+                            <div class="resource-desc">Computational knowledge engine</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://mathworld.wolfram.com/" target="_blank" class="resource-link">MathWorld</a>
+                            <div class="resource-desc">Online math encyclopedia</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.math-exercises.com/" target="_blank" class="resource-link">Math Exercises</a>
+                            <div class="resource-desc">Collection of math problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.mathopolis.com/" target="_blank" class="resource-link">Mathopolis</a>
+                            <div class="resource-desc">Math question database</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.analyzemath.com/" target="_blank" class="resource-link">Analyze Math</a>
+                            <div class="resource-desc">Tutorials with interactive problems</div>
+                        </li>
+                        <li class="resource-item">
+                            <a href="https://www.math10.com/" target="_blank" class="resource-link">Math10</a>
+                            <div class="resource-desc">Problems, games, and tools</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="quote">"The only way to learn a new programming language is by writing programs in it." - Dennis Ritchie</p>
+            <p class="motivation">Consistent practice is the key to mastery!</p>
+            <p>Dedicate at least 1-2 hours daily to solve problems across these platforms</p>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        function filterResources(category) {
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show/hide resources
+            document.querySelectorAll('.resource-card').forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+        
+        // Add hover effect to cards
+        document.querySelectorAll('.resource-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
