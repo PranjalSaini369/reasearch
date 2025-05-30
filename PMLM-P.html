@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python, ML & Mathematics Practice Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #1a2a6c;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            color: #b21f1f;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .domain-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #eee;
+        }
+        
+        .section-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-right: 20px;
+        }
+        
+        .python-icon {
+            background: linear-gradient(135deg, #3776ab, #ffd343);
+            color: white;
+        }
+        
+        .ml-icon {
+            background: linear-gradient(135deg, #ff6b6b, #4a69bd);
+            color: white;
+        }
+        
+        .maths-icon {
+            background: linear-gradient(135deg, #0c2461, #b21f1f);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            color: #1a2a6c;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #1a2a6c;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .resource-title {
+            font-size: 1.3rem;
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .resource-title i {
+            margin-right: 10px;
+            color: #b21f1f;
+        }
+        
+        .resource-desc {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background: #1a2a6c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .resource-link:hover {
+            background: #b21f1f;
+        }
+        
+        .python-card {
+            border-left-color: #3776ab;
+        }
+        
+        .ml-card {
+            border-left-color: #ff6b6b;
+        }
+        
+        .maths-card {
+            border-left-color: #0c2461;
+        }
+        
+        @media (max-width: 768px) {
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Python, ML & Mathematics Practice Hub</h1>
+            <div class="subtitle">150+ Free Resources to Master Essential Skills</div>
+            <p>Curated collection of the best free practice platforms for Python, Machine Learning, and Mathematics</p>
+        </header>
+        
+        <!-- Python Resources Section -->
+        <section class="domain-section">
+            <div class="section-header">
+                <div class="section-icon python-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h2 class="section-title">Python Practice Resources</h2>
+            </div>
+            <div class="resource-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-code"></i> LeetCode
+                    </div>
+                    <p class="resource-desc">
+                        2000+ coding problems with Python focus. Ideal for interview preparation with company-specific questions and contests.
+                    </p>
+                    <a href="https://leetcode.com/" target="_blank" class="resource-link">Start Practicing</a>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-laptop-code"></i> HackerRank
+                    </div>
+                    <p class="resource-desc">
+                        Python challenges covering data types, algorithms, and problem-solving. Interview preparation kits included.
+                    </p>
+                    <a href="https://www.hackerrank.com/" target="_blank" class="resource-link">Solve Challenges</a>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-medal"></i> CodeWars
+                    </div>
+                    <p class="resource-desc">
+                        Community-driven platform with "kata" challenges ranked by difficulty. Focuses on algorithms and data structures.
+                    </p>
+                    <a href="https://www.codewars.com/" target="_blank" class="resource-link">Join Community</a>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-running"></i> Exercism
+                    </div>
+                    <p class="resource-desc">
+                        140+ Python exercises with mentor feedback. Covers data structures, OOP, and advanced Python features.
+                    </p>
+                    <a href="https://exercism.org/tracks/python" target="_blank" class="resource-link">Python Track</a>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-calculator"></i> Project Euler
+                    </div>
+                    <p class="resource-desc">
+                        Math-centric programming problems requiring computational solutions. Excellent for algorithmic thinking.
+                    </p>
+                    <a href="https://projecteuler.net/" target="_blank" class="resource-link">Solve Problems</a>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-puzzle-piece"></i> CodingBat
+                    </div>
+                    <p class="resource-desc">
+                        Bite-sized Python warmups with real-time solution checking. Ideal for beginners mastering syntax.
+                    </p>
+                    <a href="https://codingbat.com/python" target="_blank" class="resource-link">Beginner Drills</a>
+                </div>
+                
+                <!-- Resource 7 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-project-diagram"></i> CodeChef
+                    </div>
+                    <p class="resource-desc">
+                        3000+ challenges and global coding contests. Features an AI mentor and real-world problem-solving.
+                    </p>
+                    <a href="https://www.codechef.com/" target="_blank" class="resource-link">Compete Now</a>
+                </div>
+                
+                <!-- Resource 8 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-trophy"></i> TopCoder
+                    </div>
+                    <p class="resource-desc">
+                        Competitive programming platform with tutorials and challenges. Strong focus on algorithm design.
+                    </p>
+                    <a href="https://www.topcoder.com/" target="_blank" class="resource-link">Join Challenges</a>
+                </div>
+                
+                <!-- Resource 9 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-tasks"></i> Codility
+                    </div>
+                    <p class="resource-desc">
+                        Programming lessons and challenges to develop coding skills. Excellent for technical interview prep.
+                    </p>
+                    <a href="https://www.codility.com/" target="_blank" class="resource-link">Practice Now</a>
+                </div>
+                
+                <!-- Resource 10 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-star"></i> AlgoExpert
+                    </div>
+                    <p class="resource-desc">
+                        160+ coding questions with video explanations. Focuses on data structures and algorithms.
+                    </p>
+                    <a href="https://www.algoexpert.io/product" target="_blank" class="resource-link">Learn Algorithms</a>
+                </div>
+                
+                <!-- Resource 11 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-calendar-alt"></i> Advent of Code
+                    </div>
+                    <p class="resource-desc">
+                        Annual coding challenges with festive themes. Great for building problem-solving skills.
+                    </p>
+                    <a href="https://adventofcode.com/" target="_blank" class="resource-link">Join Event</a>
+                </div>
+                
+                <!-- Resource 12 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-gamepad"></i> Edabit
+                    </div>
+                    <p class="resource-desc">
+                        Gamified Python learning with challenges ranging from beginner to advanced levels.
+                    </p>
+                    <a href="https://edabit.com/" target="_blank" class="resource-link">Play & Learn</a>
+                </div>
+                
+                <!-- Resource 13 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-book"></i> Practice Python
+                    </div>
+                    <p class="resource-desc">
+                        40+ Python exercises with solutions. New exercises added monthly with active community support.
+                    </p>
+                    <a href="https://www.practicepython.org/" target="_blank" class="resource-link">Start Exercises</a>
+                </div>
+                
+                <!-- Resource 14 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-edit"></i> PYnative
+                    </div>
+                    <p class="resource-desc">
+                        Python exercises, quizzes, and tutorials. Includes real-time online Python editor.
+                    </p>
+                    <a href="https://pynative.com/" target="_blank" class="resource-link">Learn & Practice</a>
+                </div>
+                
+                <!-- Resource 15 -->
+                <div class="resource-card python-card">
+                    <div class="resource-title">
+                        <i class="fas fa-laptop"></i> Code.org
+                    </div>
+                    <p class="resource-desc">
+                        Python courses for all ages with AI and ML focus. Excellent for beginners and educators.
+                    </p>
+                    <a href="https://code.org/" target="_blank" class="resource-link">Start Learning</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Machine Learning Resources Section -->
+        <section class="domain-section">
+            <div class="section-header">
+                <div class="section-icon ml-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2 class="section-title">Machine Learning Practice Resources</h2>
+            </div>
+            <div class="resource-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-trophy"></i> Kaggle Learn
+                    </div>
+                    <p class="resource-desc">
+                        Hands-on micro-courses with Python coding exercises. Covers ML fundamentals to advanced techniques.
+                    </p>
+                    <a href="https://www.kaggle.com/learn" target="_blank" class="resource-link">Start Courses</a>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fab fa-google"></i> Google ML Crash Course
+                    </div>
+                    <p class="resource-desc">
+                        Free course with interactive lessons on ML fundamentals using TensorFlow and real-world case studies.
+                    </p>
+                    <a href="https://developers.google.com/machine-learning/crash-course" target="_blank" class="resource-link">Begin Course</a>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-university"></i> Harvard CS50 AI
+                    </div>
+                    <p class="resource-desc">
+                        Introduction to AI with Python covering search algorithms, machine learning, and neural networks.
+                    </p>
+                    <a href="https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python" target="_blank" class="resource-link">Enroll Free</a>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-bolt"></i> Fast.ai
+                    </div>
+                    <p class="resource-desc">
+                        Practical deep learning courses with a top-down approach. Focuses on building models quickly.
+                    </p>
+                    <a href="https://www.fast.ai/" target="_blank" class="resource-link">Learn Practical ML</a>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-graduation-cap"></i> Coursera ML
+                    </div>
+                    <p class="resource-desc">
+                        Free machine learning courses from top universities. Specializations in NLP, Computer Vision, and more.
+                    </p>
+                    <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="resource-link">Explore Courses</a>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fab fa-github"></i> ML Foundations
+                    </div>
+                    <p class="resource-desc">
+                        GitHub repository with Jupyter notebooks covering ML mathematics, algorithms, and implementations.
+                    </p>
+                    <a href="https://github.com/jonkrohn/ML-foundations" target="_blank" class="resource-link">Study Code</a>
+                </div>
+                
+                <!-- Resource 7 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-project-diagram"></i> DataWars
+                    </div>
+                    <p class="resource-desc">
+                        200+ real-life ML projects with dataset playgrounds. Focuses on Pandas and Scikit-learn implementation.
+                    </p>
+                    <a href="https://www.datawars.io/" target="_blank" class="resource-link">Start Projects</a>
+                </div>
+                
+                <!-- Resource 8 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-chart-line"></i> Analytics Vidhya
+                    </div>
+                    <p class="resource-desc">
+                        Practice problems, hackathons, and learning paths for data science and machine learning.
+                    </p>
+                    <a href="https://www.analyticsvidhya.com/" target="_blank" class="resource-link">Practice Now</a>
+                </div>
+                
+                <!-- Resource 9 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-laptop-code"></i> Google Codelabs
+                    </div>
+                    <p class="resource-desc">
+                        Step-by-step ML tutorials with coding examples. Covers basics to advanced topics like NLP and vision.
+                    </p>
+                    <a href="https://codelabs.developers.google.com/" target="_blank" class="resource-link">Try Codelabs</a>
+                </div>
+                
+                <!-- Resource 10 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-book-open"></i> Machine Learning Mastery
+                    </div>
+                    <p class="resource-desc">
+                        Tutorials and guides with practical implementation. Focuses on making ML accessible to developers.
+                    </p>
+                    <a href="https://machinelearningmastery.com/" target="_blank" class="resource-link">Learn Concepts</a>
+                </div>
+                
+                <!-- Resource 11 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-database"></i> UCI ML Repository
+                    </div>
+                    <p class="resource-desc">
+                        500+ datasets for machine learning practice with classification, regression, and clustering problems.
+                    </p>
+                    <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank" class="resource-link">Explore Datasets</a>
+                </div>
+                
+                <!-- Resource 12 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-robot"></i> Hugging Face
+                    </div>
+                    <p class="resource-desc">
+                        NLP-focused platform with transformer models, datasets, and interactive NLP courses.
+                    </p>
+                    <a href="https://huggingface.co/learn" target="_blank" class="resource-link">Learn NLP</a>
+                </div>
+                
+                <!-- Resource 13 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-brain"></i> DeepLearning.AI
+                    </div>
+                    <p class="resource-desc">
+                        Specializations in deep learning, NLP, computer vision, and more. Hands-on coding assignments.
+                    </p>
+                    <a href="https://www.deeplearning.ai/" target="_blank" class="resource-link">Start Specialization</a>
+                </div>
+                
+                <!-- Resource 14 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-eye"></i> OpenCV
+                    </div>
+                    <p class="resource-desc">
+                        Computer vision tutorials and projects. Extensive documentation with Python code examples.
+                    </p>
+                    <a href="https://opencv.org/" target="_blank" class="resource-link">Computer Vision</a>
+                </div>
+                
+                <!-- Resource 15 -->
+                <div class="resource-card ml-card">
+                    <div class="resource-title">
+                        <i class="fas fa-network-wired"></i> TensorFlow Tutorials
+                    </div>
+                    <p class="resource-desc">
+                        Official tutorials covering basic to advanced TensorFlow implementations with Python.
+                    </p>
+                    <a href="https://www.tensorflow.org/tutorials" target="_blank" class="resource-link">Learn TensorFlow</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mathematics Resources Section -->
+        <section class="domain-section">
+            <div class="section-header">
+                <div class="section-icon maths-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2 class="section-title">Mathematics Practice Resources</h2>
+            </div>
+            <div class="resource-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-chalkboard-teacher"></i> Khan Academy
+                    </div>
+                    <p class="resource-desc">
+                        Free courses in linear algebra, calculus, probability, and statistics. Perfect for building foundations.
+                    </p>
+                    <a href="https://www.khanacademy.org/math" target="_blank" class="resource-link">Learn Math</a>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-brain"></i> Brilliant.org
+                    </div>
+                    <p class="resource-desc">
+                        Interactive problem-solving approach to math concepts. Covers algebra, calculus, and probability.
+                    </p>
+                    <a href="https://brilliant.org/" target="_blank" class="resource-link">Solve Problems</a>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-book"></i> Mathematics for ML (Book)
+                    </div>
+                    <p class="resource-desc">
+                        Free PDF covering linear algebra, calculus, and probability specifically for machine learning.
+                    </p>
+                    <a href="https://mml-book.github.io/" target="_blank" class="resource-link">Download Book</a>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fab fa-youtube"></i> 3Blue1Brown
+                    </div>
+                    <p class="resource-desc">
+                        YouTube channel with visual explanations of linear algebra, calculus, and neural networks.
+                    </p>
+                    <a href="https://www.youtube.com/c/3blue1brown" target="_blank" class="resource-link">Watch Videos</a>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-university"></i> MIT OpenCourseWare
+                    </div>
+                    <p class="resource-desc">
+                        Free math courses from MIT covering linear algebra, differential equations, and probability.
+                    </p>
+                    <a href="https://ocw.mit.edu/courses/mathematics/" target="_blank" class="resource-link">Access Courses</a>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-infinity"></i> Wolfram Alpha
+                    </div>
+                    <p class="resource-desc">
+                        Computational engine for solving and visualizing math problems from algebra to calculus.
+                    </p>
+                    <a href="https://www.wolframalpha.com/" target="_blank" class="resource-link">Compute Now</a>
+                </div>
+                
+                <!-- Resource 7 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-square-root-alt"></i> Math for ML (edX)
+                    </div>
+                    <p class="resource-desc">
+                        Course exploring mathematical concepts with Python implementation for machine learning.
+                    </p>
+                    <a href="https://www.edx.org/learn/math-for-machine-learning" target="_blank" class="resource-link">Enroll Free</a>
+                </div>
+                
+                <!-- Resource 8 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-calculator"></i> Project Euler
+                    </div>
+                    <p class="resource-desc">
+                        Math problems designed to be solved with programming. Great for computational mathematics.
+                    </p>
+                    <a href="https://projecteuler.net/" target="_blank" class="resource-link">Solve Challenges</a>
+                </div>
+                
+                <!-- Resource 9 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-chart-bar"></i> Think Stats
+                    </div>
+                    <p class="resource-desc">
+                        Free book introducing probability and statistics for data scientists with Python examples.
+                    </p>
+                    <a href="https://greenteapress.com/wp/think-stats-2e/" target="_blank" class="resource-link">Read Book</a>
+                </div>
+                
+                <!-- Resource 10 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-vector-square"></i> Linear Algebra Done Right
+                    </div>
+                    <p class="resource-desc">
+                        Free online book focusing on conceptual understanding of linear algebra fundamentals.
+                    </p>
+                    <a href="https://linear.axler.net/" target="_blank" class="resource-link">Study Linear Algebra</a>
+                </div>
+                
+                <!-- Resource 11 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-shapes"></i> GeeksforGeeks Maths
+                    </div>
+                    <p class="resource-desc">
+                        Articles and tutorials on math concepts for machine learning with implementation examples.
+                    </p>
+                    <a href="https://www.geeksforgeeks.org/machine-learning-mathematics/" target="_blank" class="resource-link">Learn Concepts</a>
+                </div>
+                
+                <!-- Resource 12 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-graduation-cap"></i> Jon Krohn's ML Foundations
+                    </div>
+                    <p class="resource-desc">
+                        Comprehensive curriculum covering mathematics, statistics, and computer science for ML.
+                    </p>
+                    <a href="https://github.com/jonkrohn/ML-foundations" target="_blank" class="resource-link">Access Resources</a>
+                </div>
+                
+                <!-- Resource 13 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-dice"></i> Probability Course
+                    </div>
+                    <p class="resource-desc">
+                        Free online resource covering probability theory fundamentals with examples and exercises.
+                    </p>
+                    <a href="https://www.probabilitycourse.com/" target="_blank" class="resource-link">Learn Probability</a>
+                </div>
+                
+                <!-- Resource 14 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-cubes"></i> Paul's Online Math Notes
+                    </div>
+                    <p class="resource-desc">
+                        Comprehensive notes and practice problems for algebra, calculus, and differential equations.
+                    </p>
+                    <a href="https://tutorial.math.lamar.edu/" target="_blank" class="resource-link">Study Notes</a>
+                </div>
+                
+                <!-- Resource 15 -->
+                <div class="resource-card maths-card">
+                    <div class="resource-title">
+                        <i class="fas fa-project-diagram"></i> Stat Trek
+                    </div>
+                    <p class="resource-desc">
+                        Tutorials and tools for learning statistics and probability. Includes interactive calculators.
+                    </p>
+                    <a href="https://stattrek.com/" target="_blank" class="resource-link">Learn Statistics</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Add animation to resource cards when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.resource-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
